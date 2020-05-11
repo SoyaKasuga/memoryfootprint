@@ -14,13 +14,13 @@
                 | 自分の思い出を足跡に残そう。
             
           .button
-            .btn.btn-outline-primary.up-button type="button" 
-              font[size="3"]
-                  | 新規登録
-        
             .btn.btn-outline-dark.up-button type="button" 
               font[size="3"]
                 | ログイン
+                
+            .btn.btn-outline-primary.up-button type="button" = link_to signup_path
+              font[size="3"]
+                | 新規登録
                 
             .btn.btn-outline-dark.down-button type="button" 
               font[size="3"]

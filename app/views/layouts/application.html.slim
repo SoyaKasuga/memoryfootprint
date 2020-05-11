@@ -7,6 +7,9 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    /![if lt IE 9]
+      | <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"
+      | </script
   body
     .app-title
       .container.navbar.navbar-expand-md.navbar-light.
@@ -16,7 +19,7 @@ html
           li.nav-item= link_to 'トップ', root_path, class: 'nav-link'
           li.nav-item= link_to 'メモリー' , root_path, class: 'nav-link'
           li.nav-item= link_to '地図' , root_path, class: 'nav-link'
-          li.nav-item= link_to '新規登録' , root_path, class: 'nav-link'
+          li.nav-item= link_to '新規登録' , signup_path, class: 'nav-link'
           li.nav-item= link_to 'ログイン' , root_path,class: 'nav-link'
     .top-wrapper
       = yield
