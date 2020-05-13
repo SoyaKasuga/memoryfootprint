@@ -1,0 +1,15 @@
+.container.mt
+  .user-box
+    aside
+        .user-image
+          = gravatar_for @user
+        .user-name
+          h2
+            = @user.name
+        
+        .user-follow
+          .follow
+            a フォロー
+            a フォロワー
+            
+  .description-box

@@ -1,2 +1,15 @@
-h1 Users#new
-p Find me in app/views/users/new.html.slim
+.container.mt
+  .row
+    .col-md-6.offset-md-3
+      = form_for(@user,url: signup_path) do |f|
+        = render 'shared/error_messages'
+        = f.label :name, "ユーザー名(10文字以内)"
+        = f.text_field :name, class: 'form-control'
+        = f.label :email, "メールアドレス"
+        = f.email_field :email, class: 'form-control'
+        = f.label :password, "パスワード(6文字以上)"
+        = f.password_field :password, class: 'form-control'
+        = f.label :password_confirmation, "パスワード(確認)"
+        = f.password_field :password_confirmation, class: 'form-control'
+        = f.submit "アカウントを作成する", class: "btn btn-primary"
+        

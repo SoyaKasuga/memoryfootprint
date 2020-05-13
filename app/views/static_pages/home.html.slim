@@ -1,29 +1,27 @@
 .top
-  .container
+  .container.mt
     .title
       h1  memoryfootprint
       
     .box
-      .row
-        .col-md-5.empty
-        .col-md-7
-          .introduction
-            h2
-                | あの時、あの場所でこんなことがあった。
-                br
-                | 自分の思い出を足跡に残そう。
+        .introduction
+          h2
+              | あの時、あの場所でこんなことがあった。
+              br
+              | 自分の思い出を足跡に残そう。
+          
+        .button
+          .btn.btn-outline-dark.up-button type="button" 
+            font[size="3"]
+              | ログイン
+              
+          .btn.btn-outline-primary.up-button type="button" = link_to signup_path
+            font[size="3"]
+              | 新規登録
             
-          .button
-            .btn.btn-outline-dark.up-button type="button" 
-              font[size="3"]
-                | ログイン
-                
-            .btn.btn-outline-primary.up-button type="button" = link_to signup_path
-              font[size="3"]
-                | 新規登録
-                
-            .btn.btn-outline-dark.down-button type="button" 
-              font[size="3"]
-                | テストログイン
+              
+        .btn.btn-outline-dark.down-button type="button" 
+          font[size="3"]
+            | テストログイン
               
   
