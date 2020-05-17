@@ -20,12 +20,12 @@ html
           ul.navbar-nav.ml-auto
             - if logged_in?
               li.nav-item= link_to 'トップ', root_path, class: 'nav-link'
-              li.nav-item= link_to 'メモリー' , root_path, class: 'nav-link'
+              li.nav-item= link_to 'メモリー' , users_path, class: 'nav-link'
               li.nav-item= link_to '地図' , root_path, class: 'nav-link'
               li.nav-item= link_to 'ログアウト' , logout_path, method: :delete, class: 'nav-link'
             - else
               li.nav-item= link_to 'トップ', root_path, class: 'nav-link'
-              li.nav-item= link_to 'メモリー' , root_path, class: 'nav-link'
+              li.nav-item= link_to 'メモリー' , users_path, class: 'nav-link'
               li.nav-item= link_to '地図' , root_path, class: 'nav-link'
               li.nav-item= link_to '新規登録' , signup_path, class: 'nav-link'
               li.nav-item= link_to 'ログイン' , login_path,class: 'nav-link'

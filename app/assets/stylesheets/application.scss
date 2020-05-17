@@ -4,7 +4,6 @@
 
 body {
   background-size: cover;
-  background: image-url('image_background.jpg');
   margin: 0;
   display: flex;
   flex-flow: column;
@@ -28,6 +27,8 @@ textarea {
 }
 
 .top-wrapper {
+  background: image-url('image_background.jpg');
+  background-size: cover;
   width: 100%;
   margin: 0;
   overflow:hidden;
@@ -269,6 +270,18 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+/* 投稿一覧 */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid;
+  }
 }
 
 /* レスポンシブ */
