@@ -32,6 +32,7 @@ textarea {
   width: 100%;
   margin: 0;
   overflow:hidden;
+  min-height: 100vh;
 }
 
 .mt {
@@ -227,6 +228,44 @@ navbar-brand {
   border: 2px solid;
   border-radius: 8px;
   margin-top: 20px;
+}
+
+.index-box {
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  border: 2px solid;
+  h3 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .btn {
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.post {
+  padding-left: 15px;
+  margin-bottom: 25px;
+  list-style: none;
+  
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  
+  .timestamp {
+    display:block;
+    margin-left: 50px;
+    color: gray;
+  }
 }
 
 /* 新規登録 */

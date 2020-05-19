@@ -13,3 +13,13 @@
             a フォロワー
             
   .description-box
+  .index-box
+   - if @user.microposts.any?
+    h3
+      | 投稿一覧 (#{@user.microposts.count})
+      
+    .btn.btn-outline-dark type="button" = link_to '/microposts/new'
+      | 投稿する
+    ol.microposts
+      = render @microposts
+    = will_paginate @microposts

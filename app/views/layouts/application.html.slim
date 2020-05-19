@@ -22,6 +22,7 @@ html
               li.nav-item= link_to 'トップ', root_path, class: 'nav-link'
               li.nav-item= link_to 'メモリー' , users_path, class: 'nav-link'
               li.nav-item= link_to '地図' , root_path, class: 'nav-link'
+              li.nav-item= link_to 'ユーザー' , current_user, class: 'nav-link'
               li.nav-item= link_to 'ログアウト' , logout_path, method: :delete, class: 'nav-link'
             - else
               li.nav-item= link_to 'トップ', root_path, class: 'nav-link'
