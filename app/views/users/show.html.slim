@@ -14,12 +14,21 @@
             
   .description-box
   .index-box
-   - if @user.microposts.any?
-    h3
-      | 投稿一覧 (#{@user.microposts.count})
+    - if @user.microposts.any?
+      h3
+        | 投稿一覧 (#{@user.microposts.count})
+        
+      - if current_user.present? && current_user.id == @user.id
+        .btn.btn-outline-dark type="button" = link_to '/microposts/new'
+          | 投稿する
+      ol.microposts
+        = render @microposts
+      = will_paginate @microposts
+    - else
+      h3
+        | 投稿はまだありません
       
-    .btn.btn-outline-dark type="button" = link_to '/microposts/new'
-      | 投稿する
-    ol.microposts
-      = render @microposts
-    = will_paginate @microposts
+      - if current_user.present? && current_user.id == @user.id
+        .btn.btn-outline-dark type="button" = link_to '/microposts/new'
+          | 投稿する
+
