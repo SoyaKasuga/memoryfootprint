@@ -34,4 +34,4 @@
 
 /public/uploads
 
-/config/initializers/carrierwave.rb
+config/initializers/carrierwave.rb
