@@ -11,9 +11,8 @@ unless Rails.env.development? || Rails.env.test?
       region: 'ap-northeast-1'
     }
     config.fog_provider = 'fog/aws'
-    config.fog_directory  = 'www.memoryfootprint.com'
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/www.memoryfootprint.com'
-    config.cache_storage = :fog
+    config.fog_directory  = 'memoryfootbucket'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/memoryfootbucket'
   end
 end
 CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/

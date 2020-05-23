@@ -14,7 +14,7 @@ threads threads_count, threads_count
 # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
-
+stdout_redirect "/var/www/rails/memoryfootprint/log/puma.stdout.log", "/var/www/rails/memoryfootprint/log/puma.stderr.log", true
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
 # the concurrency of the application would be max `threads` * `workers`.
