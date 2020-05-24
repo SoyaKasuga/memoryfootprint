@@ -49,6 +49,8 @@ gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.9.4'
 gem 'fog', '1.42'
 
+gem "font-awesome-sass"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
