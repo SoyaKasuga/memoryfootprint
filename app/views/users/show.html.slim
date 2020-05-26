@@ -13,6 +13,9 @@
             a フォロワー
             
   .description-box
+    h5
+      = @user.introduction
+      
   .index-box
     - if @user.microposts.any?
       h3
@@ -23,7 +26,7 @@
           | 投稿する
       ol.microposts
         = render @microposts
-      = will_paginate @microposts
+      = will_paginate @microposts, previous_label: '<', next_label: '>', inner_window: 1
     - else
       h3
         | 投稿はまだありません

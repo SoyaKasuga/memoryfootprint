@@ -1,6 +1,6 @@
 .container.mt
-  h1 All users
-  = will_paginate
+  h1 ユーザー 一覧
+  = will_paginate @users, previous_label: '<', next_label: '>'
   ul.users
     - @users.each do |user|
       li
@@ -12,4 +12,4 @@
             span
               = "削除"
               
-  = will_paginate
+  = will_paginate @users, previous_label: '<', next_label: '>'

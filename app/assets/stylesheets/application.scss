@@ -230,10 +230,15 @@ navbar-brand {
   border: 2px solid;
   border-radius: 8px;
   margin-top: 20px;
+  background-color: rgba(250,250,250,0.6);
+  h5 {
+    padding: 10px;
+    line-height: 24px;
+  }
 }
 
 .microposts {
-  padding-right: 15px;
+  padding-right: 40px;
 }
 
 .index-box {
@@ -293,6 +298,7 @@ navbar-brand {
   }
 }
 
+
 /* 新規登録 */
 
 input, textarea, select, .uneditable-input {
@@ -347,6 +353,38 @@ input {
     border-bottom: 1px solid;
   }
 }
+
+/* ページネーション */
+
+.pagination {
+  height: 100px;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.pagination a {
+  background-color: grey;
+  text-decoration: none;
+}
+
+.pagination * {
+  color: white;
+  margin: 0 auto;
+  text-decoration: none;
+  padding: 12.5px 18.5px;
+  border-radius: 25px;
+  font-family: 'Nunito', sans-serif;
+    .active a {
+      background: #93c9ff;
+    }
+}
+
+.pagination a:hover {
+  background: #93c9ff;
+}
+
+
 
 /* レスポンシブ */
 
