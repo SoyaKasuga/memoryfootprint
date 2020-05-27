@@ -13,15 +13,13 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require popper
 //= require jquery
 //= require jquery_ujs
-//= require jquery3
-//= require popper
 //= require bootstrap-sprockets
 //= require_tree .
 
-/* global $ */
+/* global $*/
 $(function(){
   setTimeout("$('.flash').fadeOut('slow')", 2000);
 });
-

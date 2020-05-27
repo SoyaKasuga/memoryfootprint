@@ -23,21 +23,29 @@
       = @user.introduction
       
   .index-box
-    - if @user.microposts.any?
-      h3
-        | 投稿一覧 (#{@user.microposts.count})
+    ol.tab-group
+      li.tab.tab-A.is-active 投稿
+      li.tab.tab-B 地図
+    .panel-group
+      .panel.tab-A.is-show
+        - if @user.microposts.any?
+          h3
+            | 投稿一覧 (#{@user.microposts.count})
         
-      - if current_user.present? && current_user.id == @user.id
-        .btn.btn-outline-dark type="button" = link_to '/microposts/new'
-          | 投稿する
-      ol.microposts
-        = render @microposts
-      = will_paginate @microposts, previous_label: '<', next_label: '>', inner_window: 1
-    - else
-      h3
-        | 投稿はまだありません
+        - if current_user.present? && current_user.id == @user.id
+          .btn.btn-outline-dark type="button" = link_to '/microposts/new'
+            | 投稿する
+          ol.microposts
+            = render @microposts
+          = will_paginate @microposts, previous_label: '<', next_label: '>', inner_window: 1
+        - else
+          h3
+            | 投稿はまだありません
       
-      - if current_user.present? && current_user.id == @user.id
-        .btn.btn-outline-dark type="button" = link_to '/microposts/new'
-          | 投稿する
-
+          - if current_user.present? && current_user.id == @user.id
+            .btn.btn-outline-dark type="button" = link_to '/microposts/new'
+              | 投稿する
+              
+      .panel.tab-B
+        h1 地図を実装予定
+        
