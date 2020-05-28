@@ -422,6 +422,31 @@ input {
   background: #93c9ff;
 }
 
+/* google map */
+
+#map {
+  height: 550px;
+  width: 100%;
+}
+
+#floating-panel {
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  max-width: 600px;
+  border-radius: 12px;
+    #address {
+      display: inline-block;
+      width: 85%;
+      margin-bottom: 0 !important;
+    }
+    #submit {
+      display: inline-block;
+      width: 15%;
+      margin-bottom: 0 !important;
+      background: #2C7CFF;
+    }
+}
 
 
 /* レスポンシブ */
