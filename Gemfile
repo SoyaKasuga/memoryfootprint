@@ -51,6 +51,8 @@ gem 'fog', '1.42'
 
 gem "font-awesome-sass"
 
+gem 'geocoder'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts_map = @user.microposts
+    @lat = @user.microposts.pluck(:latitude)
+    @lng = @user.microposts.pluck(:longitude)
   end
   
   def create

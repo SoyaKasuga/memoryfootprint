@@ -24,10 +24,14 @@
       
   .index-box
     ol.tab-group
-      li.tab.tab-A.is-active 投稿
-      li.tab.tab-B 地図
-    .panel-group
-      .panel.tab-A.is-show
+      li.tab.tab-A.is-active 地図
+      li.tab.tab-B 投稿
+    .panel-group 
+      .panel.tab-B.is-show
+        .user-map
+          h2 #{@user.name}さんの思い出を地図で探す
+        #map
+      .panel.tab-B
         - if @user.microposts.any?
           h3
             | 投稿一覧 (#{@user.microposts.count})
@@ -45,7 +49,49 @@
           - if current_user.present? && current_user.id == @user.id
             .btn.btn-outline-dark type="button" = link_to '/microposts/new'
               | 投稿する
-              
-      .panel.tab-B
-        h1 地図を実装予定
-        
+  
+          
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_map_api}&callback=initMap"></script>
+  
+  javascript:  
+    function initMap(){
+        var myLatLng = {lat: 35.658581, lng: 139.745433};
+        var mapInstance = new google.maps.Map(document.getElementById('map'), {
+            zoom: 6,
+            center: myLatLng
+        });
+        var geocoder = new google.maps.Geocoder();
+        var lat = #{{@user.microposts.pluck(:latitude)}};
+        var lng = #{{@user.microposts.pluck(:longitude)}};
+        var text = #{{@user.microposts.pluck(:content).to_json}};
+        var infoWindow = [];
+        var marker = [];
+        var i = 0;
+        var spots = lat.length;
+        for(;i<spots;++i) {
+          markerLatLng = new google.maps.LatLng({lat: lat[i], lng: lng[i]}); // 緯度経度のデータ作成
+          marker[i] = new google.maps.Marker({ 
+            position: markerLatLng,
+            map: mapInstance
+          });
+          var infoContent = document.createElement('div');
+          infoContent.innerHTML =
+          '<div class="infobox">'+
+            '<div class="infobox-name" style="color: black;">'+
+              '<div class="icon">#{gravatar_for @user,size: 30}</div>' +
+              '<a>#{@user.name}</a>' +
+            '</div>' +
+            '<div class="infobox-text" style="color: black;">' + text[i] +'</div>'+
+          '</div>'
+          infoWindow[i] = new google.maps.InfoWindow({ 
+            content: infoContent
+          });
+          markerEvent(i);
+        };
+        function markerEvent(i) {
+          marker[i].addListener('click', function() { // マーカーをクリックしたとき
+          infoWindow[i].open(mapInstance, marker[i]); // 吹き出しの表示
+          });
+        } 
+      }
+  

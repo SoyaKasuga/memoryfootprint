@@ -336,6 +336,34 @@ navbar-brand {
   }
 }
 
+.user-map {
+  padding-top: 50px;
+  margin-bottom: 30px;
+}
+
+.infobox {
+  min-height: 80px;
+  min-width: 200px;
+  .infobox-name{
+    background: #00BFFF;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0px 25px 25px 0px;
+    .icon {
+      display: inline-block;
+    }
+    a{
+      display: inline-block;
+      padding-left: 10px;
+    }
+  }
+  .infobox-text {
+    padding: 10px;
+    background: #EEEEEE;
+  }
+  
+}
+
 
 /* 新規登録 */
 
@@ -378,6 +406,17 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+/* 投稿画面 */
+
+.text_field {
+  min-height:300px;
+}
+
+.post_button {
+  width: 200px;
+  margin: 0 auto;
 }
 
 /* 投稿一覧 */
@@ -426,7 +465,9 @@ input {
 
 #map {
   height: 550px;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 #floating-panel {

@@ -10,8 +10,7 @@ html
     meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport"
     /![if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script><![endif]
     link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_map_api}&callback=initMap">
-    </script>
+    meta name="viewport" content="initial-scale=1.0"
   body
     .app-title
       .navbar.navbar-expand-sm.navbar-light.
@@ -35,3 +34,4 @@ html
       = render "shared/flash_messages"
       = yield
       = debug(params) if Rails.env.development?
+      
