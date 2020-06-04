@@ -29,7 +29,7 @@ textarea {
 }
 
 .top-wrapper {
-  background: image-url('image_background.jpg');
+  background: #f5f1ed;
   background-size: cover;
   width: 100%;
   margin: 0;
@@ -137,8 +137,9 @@ navbar-brand {
     
     h1 {
       width: 100%;
-      padding-top: 10px;
-      font-size: 45px;
+      padding-top: 30px;
+      font-size: 50px;
+      font-family: fantasy;
     }
 
   }
@@ -146,7 +147,7 @@ navbar-brand {
     
   .box {
     position: relative;
-    top: 200px;
+    top: 185px;
     width: 100%;
     min-height: 60vh;
       
@@ -155,8 +156,8 @@ navbar-brand {
       
       
       h2 {
+        font-family: fantasy;
         text-align: right;
-        font-weight: bold;
         font-color: #000;
         font-size: 20px;
         line-height: 3rem;
@@ -273,10 +274,10 @@ navbar-brand {
 }
 .tab{
     flex-grow: 1;
-    list-style:none;
-    border:solid 1px #CCC;
-    text-align:center;
-    cursor:pointer;
+    list-style: none;
+    border: solid 2px #CCC;
+    text-align: center;
+    cursor: pointer;
 }
 .panel-group{
     border:solid 1px #CCC;
@@ -339,6 +340,7 @@ navbar-brand {
 .user-map {
   padding-top: 50px;
   margin-bottom: 30px;
+  color: #808080;
 }
 
 .infobox {
@@ -348,18 +350,21 @@ navbar-brand {
     background: #00BFFF;
     font-weight: bold;
     font-size: 20px;
-    border-radius: 0px 25px 25px 0px;
+    border-radius: 0px 25px 0px 0px;
     .icon {
       display: inline-block;
+      padding: 5px;
     }
     a{
       display: inline-block;
       padding-left: 10px;
+      margin-top: 10px;
     }
   }
-  .infobox-text {
+  .infobox-content {
     padding: 10px;
     background: #EEEEEE;
+    min-height: 100px;
   }
   
 }
@@ -468,6 +473,7 @@ input {
   width: 95%;
   margin: 0 auto;
   margin-bottom: 50px;
+  border: 1px solid;
 }
 
 #floating-panel {

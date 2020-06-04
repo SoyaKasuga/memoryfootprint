@@ -16,7 +16,7 @@
               | 編集する
               
           - elsif logged_in?
-            = render 'shared/follow_form'
+            = render 'follow_form'
             
   .description-box
     h5
@@ -27,9 +27,9 @@
       li.tab.tab-A.is-active 地図
       li.tab.tab-B 投稿
     .panel-group 
-      .panel.tab-B.is-show
+      .panel.tab-A.is-show
         .user-map
-          h2 #{@user.name}さんの思い出を地図で探す
+          h2 #{@user.name}の思い出を地図で探す
         #map
       .panel.tab-B
         - if @user.microposts.any?
@@ -72,16 +72,24 @@
           markerLatLng = new google.maps.LatLng({lat: lat[i], lng: lng[i]}); // 緯度経度のデータ作成
           marker[i] = new google.maps.Marker({ 
             position: markerLatLng,
-            map: mapInstance
+            map: mapInstance,
+            icon:{
+          		url: '/assets/footprint_red.png',
+          		scaledSize: new google.maps.Size(35, 30) //サイズ
+          	}
           });
           var infoContent = document.createElement('div');
           infoContent.innerHTML =
           '<div class="infobox">'+
-            '<div class="infobox-name" style="color: black;">'+
+            '<div class="infobox-name">'+
               '<div class="icon">#{gravatar_for @user,size: 30}</div>' +
               '<a>#{@user.name}</a>' +
             '</div>' +
-            '<div class="infobox-text" style="color: black;">' + text[i] +'</div>'+
+            '<div class="infobox-content">' +
+              '<div class="infobox-text">' +
+                text[i] +
+              '</div>'+
+            '</div>' +
           '</div>'
           infoWindow[i] = new google.maps.InfoWindow({ 
             content: infoContent

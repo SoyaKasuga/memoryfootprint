@@ -2,14 +2,5 @@
   h1 ユーザー 一覧
   = will_paginate @users, previous_label: '<', next_label: '>'
   ul.users
-    - @users.each do |user|
-      li
-        = gravatar_for user, size: 50
-        = link_to user.name, user
-        - if current_user.present? && current_user.admin?
-          a 　|
-          a = link_to user, method: :delete ,data: {confirm: "削除してよろしいですか？"} do
-            span
-              = "削除"
-              
+    = render @users
   = will_paginate @users, previous_label: '<', next_label: '>'
