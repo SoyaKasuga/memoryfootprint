@@ -4,7 +4,7 @@ class Micropost < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
-  validates :address, length: { maximum: 30 }, allow_nil: true
+  validates :address, presence: true, length: { maximum: 30 }
   validate  :picture_size
   geocoded_by :address
   after_validation :geocode

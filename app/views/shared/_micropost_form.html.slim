@@ -2,6 +2,7 @@
   = render 'shared/error_messages', object: f.object
   .row
     .text_field.col-sm-6
+      = f.label :content, "テキスト"
       = f.text_area :content, placeholder: "140字以内"
     
     .place_field.col-sm-5.offset-sm-1
@@ -9,6 +10,7 @@
         = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png'
       = f.label :address, "場所・地名"
       = f.text_field :address
+      p 例）東京タワー / 高尾山 / 山下公園
   .post_button    
     = f.submit "投稿する", class: "btn btn-primary"
   
