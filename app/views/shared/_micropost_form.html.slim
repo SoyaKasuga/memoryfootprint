@@ -13,11 +13,3 @@
       p 例）東京タワー / 高尾山 / 山下公園
   .post_button    
     = f.submit "投稿する", class: "btn btn-primary"
-  
-javascript:
-  $('#micropost_picture').bind('change', function() {
-    var size_in_megabytes = this.files[0].size/1024/1024;
-    if (size_in_megabytes > 5) {
-    alert('投稿できる最大容量は5MBです。');
-    }
-  });

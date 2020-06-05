@@ -2,7 +2,10 @@
   .user-box
     aside
         .user-image
-          = gravatar_for @user
+          -if @user.picture?
+            = image_tag @user.picture.url 
+          -else
+            = image_tag "walking.png",size: "160x160", class:"image rounded-circle"
         .user-name
           h2
             = @user.name

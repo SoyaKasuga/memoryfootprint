@@ -1,20 +1,31 @@
 .container.mt
-  h1 Update your profile
+  h1 プロフィールを編集する
   .row
     .col-md-6.offset-md-3
       = form_for(@user) do |f|
         = render 'shared/error_messages', object: f.object
-        = f.label :name
-        = f.text_field :name, class: 'form-control'
-        = f.label :email
-        = f.email_field :email, class: 'form-control'
-        = f.label :password
-        = f.password_field :password, class: 'form-control'
-        = f.label :password_confirmation, "Confirmation"
-        = f.password_field :password_confirmation, class: 'form-control'
-        = f.label :introduction
-        = f.text_area :introduction, class: 'form-control'
-        = f.submit "Save changes", class: "btn btn-primary"
-      .gravatar_edit
-        = gravatar_for @user
-        a href="http://gravatar.com/emails" target="_blank"  change
+        .picture-box
+          = f.label :picture, class: 'image_label' do
+            .prev-contents
+                - if @user.picture?
+                  .prev-content
+                    = image_tag @user.picture.url, alt: "preview", class: "prev-image rounded-circle"
+                - else
+                  = image_tag "walking.png",size: "160x160", class:"image default-icon"
+            = f.file_field :picture, class: 'image_form__contents__field hidden_file', accept: 'image/jpeg,image/gif,image/png'
+        .form_group
+          = f.label :name
+          = f.text_field :name, class: 'form-control'
+        .form_group
+          = f.label :email
+          = f.email_field :email, class: 'form-control'
+        .form_group
+          = f.label :password,"パスワード"
+          = f.password_field :password, class: 'form-control'
+        .form_group
+          = f.label :password_confirmation,"パスワード(確認)"
+          = f.password_field :password_confirmation, class: 'form-control'
+        .form_group
+          = f.label :introduction,"自己紹介文(100文字以内)"
+          = f.text_area :introduction, class: 'form-control'
+        = f.submit "変更する", class: "btn btn-primary"

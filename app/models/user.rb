@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   attr_accessor :remember_token
+  mount_uploader :picture, PictureUploader
   before_save { email.downcase! }
   validates :name,  presence: true, length: { maximum: 10 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -18,6 +19,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :introduction, length: { maximum: 100 }, allow_nil: true
+  validate  :picture_size
   
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -65,4 +67,13 @@ class User < ApplicationRecord
     Micropost.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
   end
+  
+  private
+  
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "5MBを超える画像は投稿できません")
+      end
+    end
+    
 end

@@ -211,6 +211,10 @@ navbar-brand {
 .user-image {
   text-align: center;
   margin-bottom: 35px;
+  img {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 .user-follow {
@@ -368,6 +372,33 @@ navbar-brand {
   }
   
 }
+
+/* プロフィール編集 */
+
+.picture-box {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.image_label {
+  width: 180px;
+  height: 180px;
+}
+
+
+.prev-contents {
+  margin: 5px;
+  text-align: center;
+  cursor: pointer;
+  .prev-image {
+    width: 180px;
+    height: 180px;
+  }
+}
+.hidden_file {
+  display: none;
+}
+
 
 
 /* 新規登録 */
