@@ -72,32 +72,31 @@
         var i = 0;
         var spots = lat.length;
         for(;i<spots;++i) {
-          markerLatLng = new google.maps.LatLng({lat: lat[i], lng: lng[i]}); // 緯度経度のデータ作成
-          marker[i] = new google.maps.Marker({ 
-            position: markerLatLng,
-            map: mapInstance,
-            icon:{
-          		url: '/assets/footprint_red.png',
-          		scaledSize: new google.maps.Size(35, 30) //サイズ
-          	}
-          });
-          var infoContent = document.createElement('div');
-          infoContent.innerHTML =
-          '<div class="infobox">'+
-            '<div class="infobox-name">'+
-              '<div class="icon">#{gravatar_for @user,size: 30}</div>' +
-              '<a>#{@user.name}</a>' +
-            '</div>' +
-            '<div class="infobox-content">' +
-              '<div class="infobox-text">' +
-                text[i] +
-              '</div>'+
-            '</div>' +
-          '</div>'
-          infoWindow[i] = new google.maps.InfoWindow({ 
-            content: infoContent
-          });
-          markerEvent(i);
+            markerLatLng = new google.maps.LatLng({lat: lat[i], lng: lng[i]}); // 緯度経度のデータ作成
+            marker[i] = new google.maps.Marker({ 
+              position: markerLatLng,
+              map: mapInstance,
+              icon:{
+            		scaledSize: new google.maps.Size(35, 30) //サイズ
+            	}
+            });
+            var infoContent = document.createElement('div');
+            infoContent.innerHTML =
+            '<div class="infobox">'+
+              '<div class="infobox-name">'+
+                '<div class="icon">#{gravatar_for @user,size: 30}</div>' +
+                '<a>#{@user.name}</a>' +
+              '</div>' +
+              '<div class="infobox-content">' +
+                '<div class="infobox-text">' +
+                  text[i] +
+                '</div>'+
+              '</div>' +
+            '</div>'
+            infoWindow[i] = new google.maps.InfoWindow({ 
+              content: infoContent
+            });
+            markerEvent(i);
         };
         function markerEvent(i) {
           marker[i].addListener('click', function() { // マーカーをクリックしたとき
