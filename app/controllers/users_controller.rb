@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       remember @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "memoryfootprintへようこそ！"
       redirect_to @user
     else
       render 'new'
