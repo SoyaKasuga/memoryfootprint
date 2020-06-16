@@ -1,0 +1,36 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    command: bundle exec puma -C config/puma.rb
+    volumes:
+      - .:/memoryfootprint
+      - public_data:/memoryfootprint/public
+      - tmp_data:/memoryfootprint/tmp
+      - log_data:/memoryfootprint/log
+    tty: true
+    depends_on:
+      - db
+
+  web:
+    build: containers/nginx
+    ports:
+      - "80:80"
+    volumes:
+      - tmp_data:/memoryfootprint/tmp
+    depends_on:
+      - app
+
+volumes:
+  db_data:
+  public_data:
+  tmp_data:
+  log_data:

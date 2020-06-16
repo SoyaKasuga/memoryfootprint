@@ -34,4 +34,7 @@
 
 /public/uploads
 
+.DS_Store
+config/.DS_Store
 
+/environments/db.env

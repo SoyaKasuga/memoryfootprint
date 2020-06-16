@@ -14,7 +14,7 @@ threads threads_count, threads_count
 # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
-stdout_redirect "/var/www/rails/memoryfootprint/log/puma.stdout.log", "/var/www/rails/memoryfootprint/log/puma.stderr.log", true
+
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
 # the concurrency of the application would be max `threads` * `workers`.
@@ -33,7 +33,8 @@ stdout_redirect "/var/www/rails/memoryfootprint/log/puma.stdout.log", "/var/www/
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
 
-tmp_path = "/var/www/rails/memoryfootprint/tmp"
-bind "unix://#{tmp_path}/sockets/puma.sock"
-daemonize true
+app_root = File.expand_path("../..", __FILE__)
+bind "unix:///#{app_root}/tmp/sockets/puma.sock"
+
+stdout_redirect "#{app_root}/log/puma.stdout.log", "#{app_root}/log/puma.stderr.log", true
 #daemonize true
