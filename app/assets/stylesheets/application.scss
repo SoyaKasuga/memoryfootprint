@@ -228,7 +228,7 @@ navbar-brand {
       position: absolute;
       margin-left: 90px;
       top: 45px;
-      width: 23vw;
+      width: 20vw;
       height: 50px;
       color: gray;
       font-size: 12px;
@@ -600,6 +600,11 @@ input {
     }
       
   }
+
+}
+
+.user-introduction {
+  display: none !important;
 }
 }
 
