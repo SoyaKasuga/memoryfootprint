@@ -33,7 +33,6 @@ textarea {
   background-size: cover;
   width: 100%;
   margin: 0;
-  overflow:hidden;
   min-height: 100vh;
 }
 
@@ -537,6 +536,66 @@ input {
   background: #93c9ff;
 }
 
+/* フォロー・フォロワー一覧 */
+
+.user_info {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 50px;
+  img {
+    margin-left: 15px;
+    border: 1px solid gray;
+  }
+  .user_info_right {
+    margin-top: 20px;
+    margin-left: 35px;
+    display: inline-block;
+    .name {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    
+  }
+  .balloon{
+    margin-top: 30px;
+    margin-bottom: 60px;
+    position: relative;
+    background: #fde7d1;
+    padding: 15px;
+  }
+  .balloon::before{
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: -15px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid #fde7d1;
+    border-left: 20px solid transparent;
+  }
+}
+
+.following_followers {
+  display: inline-block;
+  width: 100%;
+  min-height: 70vh;
+  background: #67c6e694;
+  .follow_title {
+    color: #f5f1ed;
+    border: 1px solid #f5f1ed;
+    h2 {
+      padding: 10px 0px;
+      margin: 0px !important;
+    }
+  }
+  .userinfo {
+    width: 90% !important;
+    background: #f5f1ed;
+  }
+}
+
 /* google map */
 
 #map {
@@ -608,3 +667,9 @@ input {
 }
 }
 
+@media (min-width: 768px) {
+  .col-md-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+  }
+}
