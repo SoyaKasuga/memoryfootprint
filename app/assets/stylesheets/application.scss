@@ -198,7 +198,52 @@ navbar-brand {
   @include box_sizing;
 }
 
+/* ユーザー一覧 */
 
+.users {
+  display: flex;
+  flex-wrap: wrap;
+  .userinfo {
+    margin-top: 30px;
+    display: inline-block ;
+    position: relative;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 42%;
+    height: 120px;
+    border-radius: 50px;
+    border: 2px solid gray;
+    .image {
+      margin-top: 20px;
+      margin-left: 5px;
+      border: 1px solid rgb(218, 214, 214);
+    }
+    a {
+      position: absolute;
+      margin-left: 8px;
+      font-size: 18px;
+      top: 15px;
+    }
+    .user-introduction {
+      position: absolute;
+      margin-left: 90px;
+      top: 45px;
+      width: 23vw;
+      height: 50px;
+      color: gray;
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+    .delete-user {
+      display: inline-block;
+      margin-left: 200px;
+    }
+  }
+}
 
 
 
@@ -459,18 +504,6 @@ input {
   p {
     margin-top: -20px;
     color: #808080;
-  }
-}
-
-/* 投稿一覧 */
-
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid;
   }
 }
 

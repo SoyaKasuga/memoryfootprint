@@ -1,11 +1,14 @@
-li
+.userinfo
   -if user.picture?
-    = image_tag user.picture.url,size: "50x50"
+    = image_tag user.picture.url,size: "80x80",class:"image rounded-circle"
   -else
-    = image_tag "walking.png",size: "50x50", class:"image default-icon"
+    = image_tag "walking.png",size: "80x80", class:"image default-icon rounded-circle"
   = link_to user.name, user
+  -if user.introduction?
+    .user-introduction
+      = user.introduction
   - if current_user.present? && current_user.admin?
-    a 　|
-    a = link_to user, method: :delete ,data: {confirm: "削除してよろしいですか？"} do
-      span
-        = "削除"
+    .delete-user
+      a = link_to user, method: :delete ,data: {confirm: "削除してよろしいですか？"} do
+        span
+          = "削除"
