@@ -1,6 +1,6 @@
 .container.mt
   h1 ユーザー 一覧
   = will_paginate @users, previous_label: '<', next_label: '>'
-  ul.users
+  .users
     = render @users
   = will_paginate @users, previous_label: '<', next_label: '>'
