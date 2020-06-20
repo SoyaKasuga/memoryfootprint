@@ -23,13 +23,14 @@ class MicropostsController < ApplicationController
   end
   
   def new
+    @user = current_user
     @micropost = current_user.microposts.build
   end
   
   private
 
     def micropost_params
-      params.require(:micropost).permit(:content,:picture,:address,:longitude,:latitude)
+      params.require(:micropost).permit(:content,:picture,:address,:longitude,:latitude,:due_on)
     end
     
     def correct_user

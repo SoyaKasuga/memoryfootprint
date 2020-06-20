@@ -38,20 +38,19 @@
         - if @user.microposts.any?
           h3
             | 投稿一覧 (#{@user.microposts.count})
+        - else
+          h3
+            | 投稿はまだありません
         
         - if current_user.present? && current_user.id == @user.id
           .btn.btn-outline-dark type="button" = link_to '/microposts/new'
             | 投稿する
-          ol.microposts
+
+        ol.microposts
             = render @microposts
-          = will_paginate @microposts, previous_label: '<', next_label: '>', inner_window: 1
-        - else
-          h3
-            | 投稿はまだありません
-      
-          - if current_user.present? && current_user.id == @user.id
-            .btn.btn-outline-dark type="button" = link_to '/microposts/new'
-              | 投稿する
+            = will_paginate @microposts, previous_label: '<', next_label: '>', inner_window: 1
+        
+
   
           
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_map_api}&callback=initMap"></script>
@@ -67,12 +66,14 @@
         var lat = #{{@user.microposts.pluck(:latitude)}};
         var lng = #{{@user.microposts.pluck(:longitude)}};
         var text = #{{@user.microposts.pluck(:content).to_json}};
+        var address = #{{@user.microposts.pluck(:address).to_json}};
+        var date = #{{@user.microposts.pluck(:due_on).to_json}};
         var infoWindow = [];
         var marker = [];
         var i = 0;
         var spots = lat.length;
         for(;i<spots;++i) {
-            markerLatLng = new google.maps.LatLng({lat: lat[i], lng: lng[i]}); // 緯度経度のデータ作成
+            markerLatLng = new google.maps.LatLng({lat: lat[i], lng: lng[i]}); 
             marker[i] = new google.maps.Marker({ 
               position: markerLatLng,
               map: mapInstance,
@@ -82,10 +83,16 @@
             });
             var infoContent = document.createElement('div');
             infoContent.innerHTML =
-            '<div class="infobox">'+
-              '<div class="infobox-name">'+
-                '<div class="icon">#{gravatar_for @user,size: 30}</div>' +
-                '<a>#{@user.name}</a>' +
+            '<div class="infobox">' +
+              '<div class="tag">' +
+                '<span>場所：</span>' +
+                address[i] +
+                '<span>　</span>' +
+              '</div>' +
+              '<div class="tag">' +
+                '<span>日付：</span>' +
+                date[i] +
+                '<span>　</span>' +
               '</div>' +
               '<div class="infobox-content">' +
                 '<div class="infobox-text">' +
