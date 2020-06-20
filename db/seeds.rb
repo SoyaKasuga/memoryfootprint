@@ -17,7 +17,9 @@ end
 users = User.order(:created_at).take(6)
 6.times do
   content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content,address: "東京") }
+  users.each { |user| user.microposts.create!(content: content,
+                                              address: "東京駅",
+                                              due_on: "2020-09-10") }
 end
 
 users = User.all

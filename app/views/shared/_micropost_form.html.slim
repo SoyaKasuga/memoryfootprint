@@ -1,15 +1,19 @@
+.posting
+  h2 新規投稿
 = form_for(@micropost) do |f|
   = render 'shared/error_messages', object: f.object
   .row
-    .text_field.col-sm-6
+    .text_field.col-md-6
       = f.label :content, "テキスト"
       = f.text_area :content, placeholder: "140字以内"
+      = f.label :content, "出来事があった日"
+      = f.date_field :due_on, value: nil
     
-    .place_field.col-sm-5.offset-sm-1
-      span.picture
-        = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png'
+    .place_field.col-md-6
       = f.label :address, "場所・地名"
       = f.text_field :address
       p 例）東京タワー / 高尾山 / 山下公園
+      .picture
+        = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png'
   .post_button    
     = f.submit "投稿する", class: "btn btn-primary"
