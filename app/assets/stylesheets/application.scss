@@ -383,6 +383,15 @@ navbar-brand {
     .tweetimage {
       margin-bottom: 15px;
     }
+    .like {
+      width: 70px;
+      background: lightpink;
+      border-radius: 20px;
+      button {
+        width: 70px !important;
+        border-radius: 20px;
+      }
+    }
   }
 }
 .tag {

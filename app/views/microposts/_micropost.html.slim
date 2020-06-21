@@ -25,6 +25,7 @@
         = micropost.address
         span　
       span.content= micropost.content
+      = render 'users/like', micropost: micropost
       .tweetimage
         = image_tag micropost.picture.url if micropost.picture?
           
