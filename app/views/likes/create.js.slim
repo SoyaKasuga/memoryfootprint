@@ -1,0 +1,11 @@
+|$("#like-
+= @micropost.id
+|").html("
+= escape_javascript(render 'users/like', micropost: @micropost)
+|");
+|$("#like-
+= @micropost.id
+|-count").html('
+= icon('fa', 'heart')
+= @micropost.like_users.count
+|');
