@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :microposts,          only: [:new, :index, :create, :destroy]
   resources :relationships,       only: [:create, :destroy]
   resources :likes,       only: [:create, :destroy]
+  get     '/index', to: 'maps#index'
   get     '/help', to: 'static_pages#help'
   
 end

@@ -10,6 +10,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts_all = @user.microposts.all
+    @hash = Gmaps4rails.build_markers(@microposts_all) do |micropost, marker|
+      marker.lat micropost.latitude
+      marker.lng micropost.longitude
+      marker.infowindow render_to_string(partial: 'maps/infowindow', locals: { micropost: micropost })
+    end
   end
   
   def create
