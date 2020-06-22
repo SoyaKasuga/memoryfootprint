@@ -412,15 +412,7 @@ navbar-brand {
   color: #808080;
 }
 
-.infobox {
-  min-height: 80px;
-  min-width: 200px;
-  .infobox-content {
-    padding: 10px;
-    min-height: 100px;
-  }
-  
-}
+
 
 /* プロフィール編集 */
 
@@ -618,10 +610,38 @@ input {
 
 #map {
   height: 550px;
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 50px;
   border: 1px solid;
+}
+.map-index {
+  margin-top: 60px !important;
+  margin-bottom: 0px !important;
+  height: 90vh !important;
+
+}
+
+.infobox {
+  min-height: 80px;
+  min-width: 200px;
+  .infobox-user {
+    height: 50px;
+    border-radius: 20px;
+    background: #f5f1ed;
+    a {
+      margin: 0 auto;
+      margin-left: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+    }
+  }
+  .infobox-content {
+    padding: 10px;
+    min-height: 100px;
+  }
+  
 }
 
 #floating-panel {

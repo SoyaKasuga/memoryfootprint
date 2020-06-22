@@ -1,0 +1,19 @@
+.infobox
+  .infobox-user
+    -if micropost.user.picture?
+      = image_tag micropost.user.picture.url,size: "50x50", class:"image rounded-circle"
+    -else
+      = image_tag "walking.png",size: "50x50", class:"image rounded-circle"
+    a href='users/#{micropost.user.id}' = micropost.user.name
+  .tag
+    span  場所：
+    = micropost.address
+    span　
+  .tag
+    span  日付：
+    = micropost.due_on.strftime("%Y年%m月%d日")
+    span　
+  .infobox-content
+    = micropost.content
+  .infobox-image
+    = image_tag micropost.picture.url,size: "200x200" if micropost.picture?
