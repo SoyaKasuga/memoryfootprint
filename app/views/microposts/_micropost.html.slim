@@ -1,8 +1,8 @@
 .post
   .micropost id="micropost-#{micropost.id}" 
     .icon
-      -if @user.picture?
-        = image_tag @user.picture.url,size: "60x60", class:"image rounded-circle"
+      -if micropost.user.picture?
+        = image_tag micropost.user.picture.url,size: "60x60", class:"image rounded-circle"
       -else
         = image_tag "walking.png",size: "60x60", class:"image rounded-circle"
     .tweetbox

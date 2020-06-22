@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       marker.lng micropost.longitude
       marker.infowindow render_to_string(partial: 'maps/infowindow', locals: { micropost: micropost })
     end
+    @like_microposts = @user.like_microposts.all
   end
   
   def create

@@ -9,9 +9,9 @@
             .prev-contents
                 - if @user.picture?
                   .prev-content
-                    = image_tag @user.picture.url, alt: "preview", class: "prev-image rounded-circle"
+                    = image_tag @user.picture.url, alt: "preview", class: "prev-image rounded-circle border"
                 - else
-                  = image_tag "walking.png",size: "160x160", class:"image default-icon"
+                  = image_tag "walking.png",size: "160x160", class:"image default-icon rounded-circle border"
             = f.file_field :picture, class: 'image_form__contents__field hidden_file', accept: 'image/jpeg,image/gif,image/png'
         .form_group
           = f.label :name

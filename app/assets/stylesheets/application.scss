@@ -46,6 +46,13 @@ textarea {
   width: 100%;
   text-align: center;
 }
+.responsive {
+  max-width: 100%;
+  max-height: 200px;
+}
+.border {
+  border: 1px solid;
+}
 
 
 
@@ -208,7 +215,7 @@ navbar-brand {
     position: relative;
     margin-left: 2%;
     margin-right: 2%;
-    width: 42%;
+    width: 46%;
     height: 120px;
     border-radius: 50px;
     border: 2px solid gray;
@@ -249,10 +256,37 @@ navbar-brand {
 /* ユーザーページ */
 
 .user-box {
+  width: 70%;
   margin: 0 auto;
+  margin-bottom: 50px;
+  background: #fafafa;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+  .user_info {
+    text-align: center;
+    position: relative !important;
+  }
+  .user_info_right {
+    margin-top: 50px;
+    .name {
+      padding-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}
+.description-box {
+  background: #fde7d1;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100px;
+  margin-top: 20px;
+  padding: 15px;
 }
 
 .user-image {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 30px;
   text-align: center;
   margin-bottom: 35px;
   img {
@@ -261,7 +295,9 @@ navbar-brand {
   }
 }
 
+
 .user-follow {
+  display: inline-block;
   text-align: center;
   a {
     display: inline-block;
@@ -274,23 +310,9 @@ navbar-brand {
 .edit-or-follow {
   width: 150px;
   text-align: center;
-  margin: 10px auto 10px auto;
+  margin: 10px auto 30px auto;
 }
 
-.description-box {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 100px;
-  border: 2px solid;
-  border-radius: 8px;
-  margin-top: 20px;
-  background-color: rgba(250,250,250,0.6);
-  h5 {
-    padding: 10px;
-    line-height: 24px;
-  }
-}
 
 .microposts {
   padding-right: 40px;
@@ -300,8 +322,6 @@ navbar-brand {
   margin-top: 30px;
   margin-left: 15px;
   margin-right: 15px;
-  border: 2px solid;
-  background-color: rgba(250,250,250,0.6);
   h3 {
     padding-top: 30px;
     margin-bottom: 30px;
@@ -323,25 +343,23 @@ navbar-brand {
 .tab{
     flex-grow: 1;
     list-style: none;
-    border: solid 2px #CCC;
     text-align: center;
+    border-bottom: 1px solid;
     cursor: pointer;
-}
-.panel-group{
-    border:solid 1px #CCC;
-    border-top:none;
-    background:#eee;
 }
 .panel{ 
     display:none;
 }
 .tab.is-active{ 
-    background: #005FFF;
-    color: white;
+    background: white;
+    border: 1px solid;
+    border-bottom: none !important;
     transition: all 0.2s ease-out;
 }
 .panel.is-show{ 
+    background: white;
     display:block;
+    min-height: 50vh;
 }
 
 
@@ -553,7 +571,7 @@ input {
   position: sticky;
   top: 50px;
   img {
-    margin-left: 15px;
+    margin: 0 auto;
     border: 1px solid gray;
   }
   .user_info_right {
@@ -566,25 +584,25 @@ input {
     }
     
   }
-  .balloon{
-    margin-top: 30px;
-    margin-bottom: 60px;
-    position: relative;
-    background: #fde7d1;
-    padding: 15px;
-  }
-  .balloon::before{
-    content: '';
-    position: absolute;
-    left: 30px;
-    top: -15px;
-    display: block;
-    width: 0;
-    height: 0;
-    border-right: 20px solid transparent;
-    border-bottom: 20px solid #fde7d1;
-    border-left: 20px solid transparent;
-  }
+}
+.balloon{
+  margin-top: 30px;
+  margin-bottom: 60px;
+  position: relative;
+  background: #fde7d1;
+  padding: 15px;
+}
+.balloon::before{
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: -15px;
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #fde7d1;
+  border-left: 20px solid transparent;
 }
 
 .following_followers {

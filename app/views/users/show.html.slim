@@ -1,34 +1,31 @@
 .container.mt
-  .user-box
-    aside
-        .user-image
-          -if @user.picture?
-            = image_tag @user.picture.url 
-          -else
-            = image_tag "walking.png",size: "160x160", class:"image rounded-circle"
-        .user-name
-          h2
-            = @user.name
-        
-        .user-follow
-          = render 'shared/stats'
+  .row.user-box
+    .col-md-4.user_info
+      -if @user.picture?
+        = image_tag @user.picture.url,class:"image rounded-circle responsive"
+      -else
+        = image_tag "walking.png", class:"image default-icon rounded-circle responsive"
+    .col-md-8.user_info_right
+      a.name = @user.name
+      = render 'shared/stats'
+      .description-box
+        -if @user.introduction?
+          h6 = @user.introduction
+        -else
+          h6 まだ自己紹介文がありません...
+    .edit-or-follow
+      - if current_user.present? && current_user.id == @user.id
+        .btn.btn-outline-dark type="button" = link_to edit_user_path(@user)
+          | 編集する
           
-        .edit-or-follow
-          - if current_user.present? && current_user.id == @user.id
-            .btn.btn-outline-dark type="button" = link_to edit_user_path(@user)
-              | 編集する
-              
-          - elsif logged_in?
-            = render 'follow_form'
-            
-  .description-box
-    h5
-      = @user.introduction
+      - elsif logged_in?
+        = render 'follow_form'
       
   .index-box
     ol.tab-group
       li.tab.tab-A.is-active 地図
       li.tab.tab-B 投稿
+      li.tab.tab-C いいね！
     .panel-group 
       .panel.tab-A.is-show
         .user-map
@@ -49,6 +46,18 @@
         ol.microposts
             = render @microposts
             = will_paginate @microposts, previous_label: '<', next_label: '>', inner_window: 1
+      .panel.tab-C
+        -if @like_microposts.any?
+          h3
+            | いいね！した投稿
+        -else
+          h3
+            | いいね！した投稿はまだありません
+        
+        ol.micriposts
+          = render partial: 'microposts/micropost', collection: @like_microposts
+
+      
             
 javascript:
     handler = Gmaps.build('Google');
