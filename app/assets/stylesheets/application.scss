@@ -4,6 +4,10 @@
 
 /* universal */
 
+$color-main: #f5f1ed;
+$color-blue: #67c6e694;
+$color-white: #fafafa;
+
 body {
   background-size: cover;
   margin: 0;
@@ -29,11 +33,11 @@ textarea {
 }
 
 .top-wrapper {
-  background: #f5f1ed;
+  background: $color-main;
   background-size: cover;
   width: 100%;
   margin: 0;
-  min-height: 100vh;
+  min-height: calc(100vh - 44px);
 }
 
 .mt {
@@ -46,13 +50,11 @@ textarea {
   width: 100%;
   text-align: center;
 }
-.responsive {
-  max-width: 100%;
-  max-height: 200px;
-}
+
 .border {
   border: 1px solid;
 }
+
 
 
 
@@ -104,7 +106,7 @@ header {
 .app-title {
   height: 60px;
   width: 100%;
-  background-color: rgba(248,248,255,0.2);
+  background: rgba(248,248,255,0.2);
   top: 0;
   position: fixed;
   z-index: 10;
@@ -122,6 +124,54 @@ navbar-brand {
   right: 0;
 }
 
+.nav-item {
+  padding-right: 10px;
+}
+
+li.menu_single {
+  position: relative;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  margin: auto;
+  a {
+    padding-left: 5px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+li.menu_single ul.menu_second-level {
+  list-style: none;
+  position: absolute;
+  width: 150px;
+  top: 40px;
+  left: -30px;
+  box-sizing: border-box;
+  padding: 10px 5px;
+  background: #072A24;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  visibility: hidden;
+  a {
+    color: $color-white !important;
+  }
+}
+
+li.menu_single:hover ul.menu_second-level {
+  top: 45px;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* フッター */
+
+footer {
+  padding: 10px;
+  background: black;
+  text-align: center;
+}
+
+small {
+  color: $color-white;
+}
 /* ルートURL */
 
 .top {
@@ -129,7 +179,7 @@ navbar-brand {
   background-image: image-url('top_image.png');
   background-position: center;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 44px);
   position: relative;
   overflow:hidden;
   
@@ -153,9 +203,8 @@ navbar-brand {
     
   .box {
     position: relative;
-    top: 185px;
+    margin-top: 8rem;
     width: 100%;
-    min-height: 60vh;
       
       
     .introduction {
@@ -172,8 +221,8 @@ navbar-brand {
     
     
     .button {
-      position: relative;
-      top: 20px;
+      position: absolute;
+      top: 110px;
       width: 100%;
 
       float: right;  
@@ -189,7 +238,7 @@ navbar-brand {
         position: absolute;
         right: 0;
         margin-right: 3.4em;
-        top: 205px;
+        top: 170px;
       }
   }
 }
@@ -219,6 +268,8 @@ navbar-brand {
     height: 120px;
     border-radius: 50px;
     border: 2px solid gray;
+    background: $color-white;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
     .image {
       margin-top: 20px;
       margin-left: 5px;
@@ -258,15 +309,22 @@ navbar-brand {
 .user-box {
   width: 70%;
   margin: 0 auto;
-  margin-bottom: 50px;
-  background: #fafafa;
+  padding-top: 50px;
+  margin-bottom: 65px;
+  background: $color-white;
+  border-radius: 30px;
   box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
-  .user_info {
+  .user-info {
     text-align: center;
-    position: relative !important;
+    height: 200px;
+    img {
+      max-width: 200px;
+      max-height: 200px;
+
+      
+    }
   }
-  .user_info_right {
-    margin-top: 50px;
+  .user-info-right {
     .name {
       padding-top: 15px;
       font-size: 20px;
@@ -281,18 +339,7 @@ navbar-brand {
   min-height: 100px;
   margin-top: 20px;
   padding: 15px;
-}
-
-.user-image {
-  display: inline-block;
-  margin-left: 20px;
-  margin-top: 30px;
-  text-align: center;
-  margin-bottom: 35px;
-  img {
-    width: 200px;
-    height: 200px;
-  }
+  border-radius: 15px;
 }
 
 
@@ -339,25 +386,26 @@ navbar-brand {
     justify-content: center;
     margin: 0 !important;
     padding: 0 !important;
+    width: 40%;
 }
 .tab{
+    color: gray;
     flex-grow: 1;
     list-style: none;
     text-align: center;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid darkgray;
     cursor: pointer;
 }
 .panel{ 
     display:none;
 }
 .tab.is-active{ 
-    background: white;
-    border: 1px solid;
+    color: black !important;
+    border: 1px solid darkgray;
     border-bottom: none !important;
     transition: all 0.2s ease-out;
 }
 .panel.is-show{ 
-    background: white;
     display:block;
     min-height: 50vh;
 }
@@ -399,6 +447,7 @@ navbar-brand {
       margin: 20px 0px 15px 10px;
     }
     .tweetimage {
+      margin-top: 15px;
       margin-bottom: 15px;
     }
     .like {
@@ -412,13 +461,20 @@ navbar-brand {
     }
   }
 }
+.post {
+  background: $color-white;
+  border: 1px solid gray;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+  margin-top: 20px;
+}
 .tag {
   display: inline-block;
   margin-top: 10px;
   margin-left: 8px;
   padding: 5px;
   border-radius: 15px;
-  background: #67c6e694;
+  background: $color-blue;
   span {
     color: #fde7d1;
   }
@@ -549,7 +605,7 @@ input {
 }
 
 .pagination * {
-  color: white;
+  color: $color-white;
   margin: 0 auto;
   text-decoration: none;
   padding: 12.5px 18.5px;
@@ -570,10 +626,7 @@ input {
   position: -webkit-sticky;
   position: sticky;
   top: 50px;
-  img {
-    margin: 0 auto;
-    border: 1px solid gray;
-  }
+  
   .user_info_right {
     margin-top: 20px;
     margin-left: 35px;
@@ -609,10 +662,11 @@ input {
   display: inline-block;
   width: 100%;
   min-height: 70vh;
-  background: #67c6e694;
+  margin-bottom: 40px;
+  background: $color-blue;
   .follow_title {
-    color: #f5f1ed;
-    border: 1px solid #f5f1ed;
+    color: $color-main;
+    border: 1px solid $color-main;
     h2 {
       padding: 10px 0px;
       margin: 0px !important;
@@ -620,7 +674,7 @@ input {
   }
   .userinfo {
     width: 90% !important;
-    background: #f5f1ed;
+    background: $color-main;
   }
 }
 
@@ -646,7 +700,7 @@ input {
   .infobox-user {
     height: 50px;
     border-radius: 20px;
-    background: #f5f1ed;
+    background: $color-main;
     a {
       margin: 0 auto;
       margin-left: 15px;
@@ -690,7 +744,7 @@ input {
   .box {   
   margin: 0 auto;
   width: 400px;
-  top: 150px;
+  top: 100px;
     .introduction {
       width: 100%;
       margin: 0 auto;

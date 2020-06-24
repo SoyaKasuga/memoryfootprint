@@ -1,0 +1,5 @@
+.container.mt
+  h1 全ての投稿
+  .microposts-index
+    = render @microposts
+  = will_paginate @microposts, previous_label: '<', next_label: '>'

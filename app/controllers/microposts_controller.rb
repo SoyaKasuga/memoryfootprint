@@ -20,6 +20,7 @@ class MicropostsController < ApplicationController
   end
   
   def index
+    @microposts = Micropost.all.paginate(page: params[:page])
   end
   
   def new

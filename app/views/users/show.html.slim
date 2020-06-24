@@ -1,11 +1,11 @@
 .container.mt
   .row.user-box
-    .col-md-4.user_info
+    .col-md-4.user-info
       -if @user.picture?
-        = image_tag @user.picture.url,class:"image rounded-circle responsive"
+        = image_tag @user.picture.url, size: "200x200" ,class:"image rounded-circle"
       -else
-        = image_tag "walking.png", class:"image default-icon rounded-circle responsive"
-    .col-md-8.user_info_right
+        = image_tag "walking.png", size: "200x200" , class:"image default-icon rounded-circle"
+    .col-md-8.user-info-right
       a.name = @user.name
       = render 'shared/stats'
       .description-box
