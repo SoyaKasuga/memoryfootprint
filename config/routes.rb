@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resources :likes,       only: [:create, :destroy]
   get     '/index', to: 'maps#index'
   get     '/help', to: 'static_pages#help'
-  
+  get     'microposts/rank',  to: 'microposts#rank'
 end

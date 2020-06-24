@@ -1,0 +1,34 @@
+.container.mt
+  .pagetitle.rank
+    a = icon("fas","crown")
+    a いいね数ランキング
+  ol.tab-group
+      li.tab.tab-A.is-active 総合ランキング
+      li.tab.tab-B 月間ランキング
+  .panel-group
+    .panel.tab-A.is-show.microposts-index
+      - @like_ranks.each.with_index do |micropost,i|
+        .ranking
+          -if i < 3
+            a = icon("fas","crown")
+          a = i + 1
+          a 位
+        = render 'microposts/micropost', micropost: micropost
+      #map.mt40
+    .panel.tab-B
+      - @month_ranks.each.with_index do |micropost,i|
+        .ranking
+          -if i < 3
+            a = icon("fas","crown")
+          a = i + 1
+          a 位
+        = render 'microposts/micropost', micropost: micropost
+
+
+  javascript:
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(#{raw @hash.to_json});
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });

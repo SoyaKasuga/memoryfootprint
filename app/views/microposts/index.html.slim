@@ -1,5 +1,9 @@
 .container.mt
   h1 全ての投稿
+  .like-ranking
+    a = icon("fas","crown")
+    span　
+    a = link_to "いいね数ランキングを見る", microposts_rank_path
   .microposts-index
     = render @microposts
   = will_paginate @microposts, previous_label: '<', next_label: '>'

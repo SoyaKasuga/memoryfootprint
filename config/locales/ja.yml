@@ -1,6 +1,19 @@
 ---
 ja:
   activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+      micropost:
+        content: テキスト
+        address: 場所・地名
+        due_on: 出来事があった日
+        picture: 画像
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

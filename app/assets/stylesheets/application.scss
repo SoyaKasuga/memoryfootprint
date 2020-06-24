@@ -55,7 +55,17 @@ textarea {
   border: 1px solid;
 }
 
-
+.pagetitle {
+  width: 400px;
+  text-align: center;
+  padding: 10px 15px;
+  display: inline-block;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+}
+h1 {
+  color: rgb(107, 107, 107);
+}
 
 
 * {
@@ -364,6 +374,9 @@ small {
 .microposts {
   padding-right: 40px;
 }
+.microposts-index {
+  margin-bottom: 40px;
+}
 
 .index-box {
   margin-top: 30px;
@@ -408,6 +421,7 @@ small {
 .panel.is-show{ 
     display:block;
     min-height: 50vh;
+    margin-bottom: 40px;
 }
 
 
@@ -486,8 +500,32 @@ small {
   color: #808080;
 }
 
+/* 投稿一覧 */
 
+.rank {
+  background: gold;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+.like-ranking {
+  width: 300px;
+  background: gold;
+  border-radius: 10px;
+  padding: 5px 10px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.29);
+  a {
+    color: black !important;
+  }
+}
 
+.ranking {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 2rem;
+}
+.mt40 {
+  margin-top: 40px !important;
+}
 /* プロフィール編集 */
 
 .picture-box {
@@ -686,6 +724,41 @@ input {
   margin: 0 auto;
   margin-bottom: 50px;
   border: 1px solid;
+}
+.map-box {
+  h1 {
+    margin-top: 80px;
+    float: left !important;
+    position: relative;
+    background: #f4f4f4;
+    padding: 2px 5px 2px 65px;
+    font-size: 20px;
+    color: #474747;
+    border-radius: 0 10px 10px 0;
+    &:before {
+      font-family: "Font Awesome 5 Free";
+      content: "\f041";
+      display: inline-block;
+      line-height: 40px;
+      position: absolute;
+      padding: 0em;
+      color: white;
+      background: #ff6363;
+      font-weight: 900;
+      width: 40px;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      left: 1em;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      border-radius: 50%;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.29);
+    }
+  }
+  
+  
 }
 .map-index {
   margin-top: 60px !important;
