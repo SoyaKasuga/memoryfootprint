@@ -14,17 +14,32 @@
                   = image_tag "walking.png",size: "160x160", class:"image default-icon rounded-circle border"
             = f.file_field :picture, class: 'image_form__contents__field hidden_file', accept: 'image/jpeg,image/gif,image/png'
         .form_group
-          = f.label :name
-          = f.text_field :name, class: 'form-control'
+          -if @user.email == "testuser@test.com"
+            .limit
+              h5 テストユーザーのため、編集権限に制限があります
+          = f.label :name,"名前"
+          -if @user.email == "testuser@test.com"
+            = f.text_field :name, autofocus: true, autocomplete: 'name', class: 'form-control', required: 'required', disabled: true
+          -else
+            = f.text_field :name, class: 'form-control'
         .form_group
-          = f.label :email
-          = f.email_field :email, class: 'form-control'
+          = f.label :email,"メールアドレス"
+          -if @user.email == "testuser@test.com"
+            = f.email_field :email, autofocus: true, autocomplete: 'name', class: 'form-control', required: 'required', disabled: true
+          -else
+            = f.email_field :email, class: 'form-control'
         .form_group
           = f.label :password,"パスワード"
-          = f.password_field :password, class: 'form-control'
+          -if @user.email == "testuser@test.com"
+            = f.password_field :password, autofocus: true, autocomplete: 'name', class: 'form-control', required: 'required', disabled: true
+          -else
+            = f.password_field :password, class: 'form-control'
         .form_group
           = f.label :password_confirmation,"パスワード(確認)"
-          = f.password_field :password_confirmation, class: 'form-control'
+          -if @user.email == "testuser@test.com"
+            = f.password_field :password_confirmation, autofocus: true, autocomplete: 'name', class: 'form-control', required: 'required', disabled: true
+          -else
+            = f.password_field :password_confirmation, class: 'form-control'
         .form_group
           = f.label :introduction,"自己紹介文(100文字以内)"
           = f.text_area :introduction, class: 'form-control'
