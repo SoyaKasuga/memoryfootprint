@@ -221,11 +221,11 @@ small {
       
       
       h2 {
-        font-family: fantasy;
         text-align: right;
         color: #000;
         font-size: 20px;
         line-height: 3rem;
+        font-family: fantasy;
       }
     }
     
@@ -236,12 +236,13 @@ small {
       width: 100%;
 
       float: right;  
-  
+      
     
       .up-button {
         float: right;
         margin-right: 1em;
         margin-left: 1em;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
       } 
     }
     .down-button {
@@ -249,6 +250,11 @@ small {
         right: 0;
         margin-right: 3.4em;
         top: 170px;
+        background: rgba(240, 238, 123, 0.6);
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+        a {
+          color: darkslategray !important;
+        }
       }
   }
 }
@@ -552,7 +558,11 @@ small {
   display: none;
 }
 
-
+.limit {
+  color: red;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
 /* 新規登録 */
 
