@@ -7,8 +7,3 @@
   -if user.introduction?
     .user-introduction
       = user.introduction
-  - if current_user.present? && current_user.admin?
-    .delete-user
-      a = link_to user, method: :delete ,data: {confirm: "削除してよろしいですか？"} do
-        span
-          = "削除"

@@ -316,10 +316,6 @@ small {
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;
     }
-    .delete-user {
-      display: inline-block;
-      margin-left: 200px;
-    }
   }
 }
 
@@ -329,6 +325,7 @@ small {
 
 .user-box {
   width: 70%;
+  position: relative;
   margin: 0 auto;
   padding-top: 50px;
   margin-bottom: 65px;
@@ -351,6 +348,13 @@ small {
       font-size: 20px;
       font-weight: bold;
     }
+  }
+  .delete-user {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    padding: 5px;
+    border: 2px solid;
   }
 }
 .description-box {
