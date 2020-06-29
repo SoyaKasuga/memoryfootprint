@@ -1,11 +1,11 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :destroy]
+  before_action :logged_in_user, only: %i[new create destroy]
   before_action :correct_user,   only: :destroy
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      flash[:success] = "投稿しました"
+      flash[:success] = '投稿しました'
       redirect_to current_user
     else
       render 'microposts/new'
@@ -14,7 +14,7 @@ class MicropostsController < ApplicationController
 
   def destroy
     @micropost.destroy
-    flash[:success] = "投稿を削除しました"
+    flash[:success] = '投稿を削除しました'
     redirect_to current_user
   end
 
@@ -28,9 +28,11 @@ class MicropostsController < ApplicationController
   end
 
   def rank
-    @like_ranks = Micropost.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(5).pluck(:micropost_id))
+    @like_ranks = Micropost.find(Like.group(:micropost_id)
+                           .order('count(micropost_id) desc').limit(5).pluck(:micropost_id))
     @month_data = Like.where(updated_at: Time.current.all_month)
-    @month_ranks = Micropost.find(@month_data.group(:micropost_id).order('count(micropost_id) desc').limit(5).pluck(:micropost_id))
+    @month_ranks = Micropost.find(@month_data.group(:micropost_id)
+                            .order('count(micropost_id) desc').limit(5).pluck(:micropost_id))
     @hash = Gmaps4rails.build_markers(@like_ranks) do |micropost, marker|
       marker.lat micropost.latitude
       marker.lng micropost.longitude

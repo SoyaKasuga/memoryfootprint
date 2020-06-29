@@ -10,9 +10,9 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :microposts,          only: [:new, :index, :create, :destroy]
-  resources :relationships,       only: [:create, :destroy]
-  resources :likes, only: [:create, :destroy]
+  resources :microposts,          only: %i[new index create destroy]
+  resources :relationships,       only: %i[create destroy]
+  resources :likes, only: %i[create destroy]
   resources :testsessions, only: [:create]
   get     '/index', to: 'maps#index'
   get     '/help', to: 'static_pages#help'

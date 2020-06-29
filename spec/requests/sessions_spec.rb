@@ -9,8 +9,8 @@ RSpec.describe 'access to sessions', type: :request do
       expect(is_logged_in?).to be_truthy
     end
     it 'does not log in because of invalid request' do
-      post login_path, params: { session: { email: "",
-                                            password: "" } }
+      post login_path, params: { session: { email: '',
+                                            password: '' } }
       expect(is_logged_in?).to be_falsey
     end
   end

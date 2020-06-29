@@ -7,7 +7,7 @@ RSpec.describe Micropost, type: :model do
   it 'has a valid factory bot' do
     expect(micropost).to be_valid
   end
-  it "user method return owner of microposts" do
+  it 'user method return owner of microposts' do
     expect(micropost.user).to eq user
   end
   describe 'validations' do
@@ -22,10 +22,10 @@ RSpec.describe Micropost, type: :model do
     expect(micropost.longitude).to_not eq nil
   end
 
-  describe "micropost association" do
+  describe 'micropost association' do
     let!(:new_post) { create(:micropost, user: user) }
 
-    it "order descending" do
+    it 'order descending' do
       expect(user.microposts.count).to eq 2
       expect(Micropost.all.count).to eq user.microposts.count
       expect(user.microposts.to_a).to eq [new_post, micropost]

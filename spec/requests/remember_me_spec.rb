@@ -15,7 +15,7 @@ RSpec.describe 'Remember me', type: :request do
     it 'log out and discard remember token' do
       delete logout_path
       expect(response).to redirect_to root_path
-      expect(cookies['remember_token']).to eq ""
+      expect(cookies['remember_token']).to eq ''
     end
   end
   context 'not remembering' do

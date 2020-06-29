@@ -12,54 +12,54 @@
 
 ActiveRecord::Schema.define(version: 2020_06_20_032511) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "likes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "micropost_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["micropost_id"], name: "index_likes_on_micropost_id"
-    t.index ["user_id", "micropost_id"], name: "index_likes_on_user_id_and_micropost_id", unique: true
-    t.index ["user_id"], name: "index_likes_on_user_id"
+  create_table 'likes', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'micropost_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['micropost_id'], name: 'index_likes_on_micropost_id'
+    t.index %w[user_id micropost_id], name: 'index_likes_on_user_id_and_micropost_id', unique: true
+    t.index ['user_id'], name: 'index_likes_on_user_id'
   end
 
-  create_table "microposts", force: :cascade do |t|
-    t.text "content"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "picture"
-    t.string "address"
-    t.float "latitude"
-    t.float "longitude"
-    t.date "due_on"
-    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_microposts_on_user_id"
+  create_table 'microposts', force: :cascade do |t|
+    t.text 'content'
+    t.bigint 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'picture'
+    t.string 'address'
+    t.float 'latitude'
+    t.float 'longitude'
+    t.date 'due_on'
+    t.index %w[user_id created_at], name: 'index_microposts_on_user_id_and_created_at'
+    t.index ['user_id'], name: 'index_microposts_on_user_id'
   end
 
-  create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["followed_id"], name: "index_relationships_on_followed_id"
-    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  create_table 'relationships', force: :cascade do |t|
+    t.integer 'follower_id'
+    t.integer 'followed_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['followed_id'], name: 'index_relationships_on_followed_id'
+    t.index %w[follower_id followed_id], name: 'index_relationships_on_follower_id_and_followed_id', unique: true
+    t.index ['follower_id'], name: 'index_relationships_on_follower_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.string "remember_digest"
-    t.boolean "admin", default: false
-    t.string "introduction"
-    t.string "picture"
-    t.index ["email"], name: "index_users_on_email", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.string 'email'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'password_digest'
+    t.string 'remember_digest'
+    t.boolean 'admin', default: false
+    t.string 'introduction'
+    t.string 'picture'
+    t.index ['email'], name: 'index_users_on_email', unique: true
   end
 
-  add_foreign_key "microposts", "users"
+  add_foreign_key 'microposts', 'users'
 end

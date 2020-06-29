@@ -12,7 +12,7 @@ RSpec.describe 'users', js: true, type: :system do
         click_button 'アカウントを作成する'
       end
       it 'gets an flash message' do
-        expect(page).to have_selector('.alert-success', text: "memoryfootprintへようこそ！")
+        expect(page).to have_selector('.alert-success', text: 'memoryfootprintへようこそ！')
       end
     end
     context 'enter an invalid values' do
@@ -28,9 +28,9 @@ RSpec.describe 'users', js: true, type: :system do
       it 'get flash messages' do
         is_expected.to have_selector('#error_explanation')
         is_expected.to have_selector('.alert-danger', text: 'The form contains 4 error.')
-        is_expected.to have_content("名前を入力してください")
-        is_expected.to have_content("メールアドレスを入力してください")
-        is_expected.to have_content("パスワードを入力してください")
+        is_expected.to have_content('名前を入力してください')
+        is_expected.to have_content('メールアドレスを入力してください')
+        is_expected.to have_content('パスワードを入力してください')
       end
       it 'render to /signup url' do
         is_expected.to have_current_path '/signup'
@@ -56,7 +56,7 @@ RSpec.describe 'users', js: true, type: :system do
         page.accept_confirm '削除してよろしいですか？' do
           delete_link.click
         end
-        expect(page).to have_content "ユーザーを削除しました"
+        expect(page).to have_content 'ユーザーを削除しました'
         expect(User.where(email: 'another@another.com')).to be_empty
       end
     end
@@ -71,7 +71,7 @@ RSpec.describe 'users', js: true, type: :system do
       end
 
       it do
-        expect(page).to have_no_content "削除"
+        expect(page).to have_no_content '削除'
       end
     end
   end
@@ -82,7 +82,7 @@ RSpec.describe 'users', js: true, type: :system do
     before { visit users_path }
 
     it 'have user path' do
-      expect(page).to have_link "テストユーザー", href: user_path(user)
+      expect(page).to have_link 'テストユーザー', href: user_path(user)
     end
   end
 
@@ -100,7 +100,7 @@ RSpec.describe 'users', js: true, type: :system do
       before { visit user_path(user) }
 
       it 'have edit link' do
-        expect(page).to have_link "編集する", href: edit_user_path(user)
+        expect(page).to have_link '編集する', href: edit_user_path(user)
       end
     end
 
@@ -108,7 +108,7 @@ RSpec.describe 'users', js: true, type: :system do
       before { visit user_path(another) }
 
       it 'have follow link' do
-        expect(page).to have_button "フォローする"
+        expect(page).to have_button 'フォローする'
       end
     end
   end
