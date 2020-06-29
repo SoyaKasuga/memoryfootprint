@@ -19,7 +19,8 @@ https://memoryfootprint.com
 * Docker
 * GitHub
 
-# 構成図
+# インフラ構成図
+[Untitled Diagram.pdf](https://github.com/SoyaKasuga/memoryfootprint/files/4843980/Untitled.Diagram.pdf)
 
 # 機能一覧
 * ユーザー登録、ログイン機能
