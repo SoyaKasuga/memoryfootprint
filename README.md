@@ -20,7 +20,7 @@ https://memoryfootprint.com
 * GitHub
 
 # インフラ構成図
-[Untitled Diagram.pdf](https://github.com/SoyaKasuga/memoryfootprint/files/4843980/Untitled.Diagram.pdf)
+![Untitled Diagram](https://user-images.githubusercontent.com/62055598/85977218-22423580-ba17-11ea-83a1-9bc7d7f7d768.png)
 
 # 機能一覧
 * ユーザー登録、ログイン機能
