@@ -37,7 +37,7 @@ RSpec.describe User, type: :model do
         expect(user).to_not be_valid
       end
     end
-    
+
     describe 'before_save' do
       describe '#email_downcase' do
         let!(:user) { create(:user, email: 'ORIGINAL@EXAMPLE.COM') }

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'render right page', type: :request do
   context 'GET /' do
-    before { get root_path}
+    before { get root_path }
     it 'render /' do
       expect(response).to have_http_status 200
     end

@@ -10,7 +10,7 @@ class Micropost < ApplicationRecord
   validate  :picture_size
   geocoded_by :address
   after_validation :geocode
-  
+
   def like(user)
     likes.create(user_id: user.id)
   end
@@ -22,13 +22,12 @@ class Micropost < ApplicationRecord
   def like?(user)
     like_users.include?(user)
   end
-  
+
   private
-  
-    def picture_size
-      if picture.size > 5.megabytes
-        errors.add(:picture, "5MBを超える画像は投稿できません")
-      end
+
+  def picture_size
+    if picture.size > 5.megabytes
+      errors.add(:picture, "5MBを超える画像は投稿できません")
     end
-    
+  end
 end

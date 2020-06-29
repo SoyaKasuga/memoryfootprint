@@ -1,5 +1,4 @@
 class MapsController < ApplicationController
-
   def index
     @microposts = Micropost.all
     @hash = Gmaps4rails.build_markers(@microposts) do |micropost, marker|

@@ -13,7 +13,7 @@ RSpec.describe 'Sessions', type: :system do
         click_button 'ログイン'
       end
       subject { page }
-      
+
       it 'have links while logged in', js: true do
         is_expected.to have_current_path user_path(user)
         find('.menu_single').hover
@@ -21,7 +21,7 @@ RSpec.describe 'Sessions', type: :system do
         is_expected.to have_link '全ての投稿', href: microposts_path
         is_expected.to have_link '地図', href: index_path
         is_expected.to have_link 'ユーザーリスト', href: users_path
-        is_expected.to have_link "#{user.name}", href: user_path(user)
+        is_expected.to have_link user.name.to_s, href: user_path(user)
         is_expected.to have_link 'プロフィール', href: user_path(user)
         is_expected.to have_link 'ユーザー情報編集', href: edit_user_path(user)
         is_expected.to have_link '投稿する', href: new_micropost_path

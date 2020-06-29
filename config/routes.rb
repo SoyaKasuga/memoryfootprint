@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root'static_pages#home'
+  root 'static_pages#home'
   get     '/signup',  to: 'users#new'
   post    '/signup',  to: 'users#create'
   get     '/login',   to: 'sessions#new'
@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   end
   resources :microposts,          only: [:new, :index, :create, :destroy]
   resources :relationships,       only: [:create, :destroy]
-  resources :likes,       only: [:create, :destroy]
-  resources :testsessions,       only: [:create]
+  resources :likes, only: [:create, :destroy]
+  resources :testsessions, only: [:create]
   get     '/index', to: 'maps#index'
   get     '/help', to: 'static_pages#help'
-  get     'microposts/rank',  to: 'microposts#rank'
+  get     'microposts/rank', to: 'microposts#rank'
 end

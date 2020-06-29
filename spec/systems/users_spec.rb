@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'users',js: true, type: :system do
+RSpec.describe 'users', js: true, type: :system do
   describe 'user create a new account' do
     context 'enter an valid values' do
       before do
@@ -40,8 +40,8 @@ RSpec.describe 'users',js: true, type: :system do
 
   describe 'user destroy another account' do
     let!(:user) { create(:user, email: 'test@test.com', password: 'password', admin: true) }
-    let!(:another) { create(:user, name: 'another', email: 'another@another.com')}
-    
+    let!(:another) { create(:user, name: 'another', email: 'another@another.com') }
+
     context 'admin user' do
       before do
         visit login_path
@@ -50,8 +50,8 @@ RSpec.describe 'users',js: true, type: :system do
         click_button 'ログイン'
         visit user_path(another)
       end
-      
-      it  do
+
+      it do
         delete_link = find_link '削除'
         page.accept_confirm '削除してよろしいですか？' do
           delete_link.click
@@ -78,17 +78,17 @@ RSpec.describe 'users',js: true, type: :system do
 
   describe 'visit users index' do
     let!(:user) { create(:user, email: 'test@test.com', password: 'password', admin: true) }
-    let!(:another) { create(:user, name: 'another', email: 'another@another.com')}
-    before{  visit users_path }
+    let!(:another) { create(:user, name: 'another', email: 'another@another.com') }
+    before { visit users_path }
 
     it 'have user path' do
-      expect(page).to have_link "テストユーザー",href: user_path(user)
+      expect(page).to have_link "テストユーザー", href: user_path(user)
     end
   end
 
   describe 'visit user page' do
     let!(:user) { create(:user, email: 'test@test.com', password: 'password', admin: true) }
-    let!(:another) { create(:user, name: 'another', email: 'another@another.com')}
+    let!(:another) { create(:user, name: 'another', email: 'another@another.com') }
     before do
       visit login_path
       fill_in 'メールアドレス', with: 'test@test.com'
@@ -98,15 +98,15 @@ RSpec.describe 'users',js: true, type: :system do
 
     context 'visit own user page' do
       before { visit user_path(user) }
-      
+
       it 'have edit link' do
-        expect(page).to have_link "編集する",href: edit_user_path(user)
+        expect(page).to have_link "編集する", href: edit_user_path(user)
       end
     end
 
-    context 'visit another user page',js: true do
+    context 'visit another user page', js: true do
       before { visit user_path(another) }
-      
+
       it 'have follow link' do
         expect(page).to have_button "フォローする"
       end

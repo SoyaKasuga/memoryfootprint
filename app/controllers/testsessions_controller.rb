@@ -3,7 +3,7 @@ class TestsessionsController < ApplicationController
     if current_user == User.find_by(email: "testuser@test.com")
       flash[:danger] = "すでにテストユーザーとしてログインしています"
       redirect_to current_user
-    elsif current_user != nil
+    elsif !current_user.nil?
       flash[:danger] = "テストユーザーとしてログインするために一度ログアウトしてください"
       redirect_to current_user
     else

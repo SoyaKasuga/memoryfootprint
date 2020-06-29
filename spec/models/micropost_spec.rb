@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Micropost, type: :model do
   let!(:user) { create(:user) }
-  let!(:micropost){ create(:micropost,user: user) }
-  
+  let!(:micropost) { create(:micropost, user: user) }
+
   it 'has a valid factory bot' do
     expect(micropost).to be_valid
   end
@@ -21,10 +21,10 @@ RSpec.describe Micropost, type: :model do
     expect(micropost.latitude).to_not eq nil
     expect(micropost.longitude).to_not eq nil
   end
-  
+
   describe "micropost association" do
-    let!(:new_post) { create(:micropost,user: user) }
-    
+    let!(:new_post) { create(:micropost, user: user) }
+
     it "order descending" do
       expect(user.microposts.count).to eq 2
       expect(Micropost.all.count).to eq user.microposts.count
