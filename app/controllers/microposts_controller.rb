@@ -28,10 +28,10 @@ class MicropostsController < ApplicationController
   end
 
   def rank
-    @like_ranks = Micropost.find(Like.group(:micropost_id)
+    @like_ranks = Micropost.unscoped.find(Like.group(:micropost_id)
                            .order('count(micropost_id) desc').limit(5).pluck(:micropost_id))
     @month_data = Like.where(updated_at: Time.current.all_month)
-    @month_ranks = Micropost.find(@month_data.group(:micropost_id)
+    @month_ranks = Micropost.unscoped.find(@month_data.group(:micropost_id)
                             .order('count(micropost_id) desc').limit(5).pluck(:micropost_id))
     @hash = Gmaps4rails.build_markers(@like_ranks) do |micropost, marker|
       marker.lat micropost.latitude
