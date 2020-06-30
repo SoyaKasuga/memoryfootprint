@@ -17,32 +17,39 @@ html
     .app-title
       .navbar.navbar-expand-sm.navbar-light.
         navbar-brand href="#"
-        
-        .menu
-          ul.navbar-nav.ml-auto
-            - if logged_in?
-              li.nav-item= link_to 'トップ', root_path, class: 'nav-link'
-              li.nav-item= link_to '全ての投稿' , microposts_path, class: 'nav-link'
-              li.nav-item= link_to '地図' , '/index', class: 'nav-link'
-              li.nav-item= link_to 'ユーザーリスト' , users_path, class: 'nav-link'
-              li.nav-item.nav-link.menu_single
-                -if current_user.picture?
-                  = image_tag current_user.picture.url, size: "30x30" ,class:"image rounded-circle"
-                -else
-                  = image_tag "walking.png", size: "30x30" , class:"image default-icon rounded-circle"
-                = link_to "#{current_user.name}", current_user,class: 'init-bottom '
-                ul.menu_second-level
-                  li = link_to 'プロフィール', current_user
-                  li = link_to 'ユーザー情報編集', edit_user_path(current_user)
-                  li = link_to '投稿する', new_micropost_path
-              li.nav-item= link_to 'ログアウト' , logout_path, method: :delete, class: 'nav-link'
-            - else
-              li.nav-item= link_to 'トップ', root_path, class: 'nav-link'
-              li.nav-item= link_to '全ての投稿' , microposts_path, class: 'nav-link'
-              li.nav-item= link_to '地図' , '/index', class: 'nav-link'
-              li.nav-item= link_to 'ユーザーリスト' , users_path, class: 'nav-link'
-              li.nav-item= link_to '新規登録' , signup_path, class: 'nav-link'
-              li.nav-item= link_to 'ログイン' , login_path,class: 'nav-link'
+        #navArea
+          nav
+            .inner
+              ul.navbar-nav.ml-auto
+                - if logged_in?
+                  li.nav-item= link_to 'トップ', root_path, class: 'nav-link'
+                  li.nav-item= link_to '全ての投稿' , microposts_path, class: 'nav-link'
+                  li.nav-item= link_to '地図' , '/index', class: 'nav-link'
+                  li.nav-item= link_to 'ユーザーリスト' , users_path, class: 'nav-link'
+                  li.nav-item.nav-link.menu_single
+                    -if current_user.picture?
+                      = image_tag current_user.picture.url, size: "30x30" ,class:"image rounded-circle"
+                    -else
+                      = image_tag "walking.png", size: "30x30" , class:"image default-icon rounded-circle"
+                    = link_to "#{current_user.name}", current_user,class: 'init-bottom '
+                    ul.menu_second-level
+                      li = link_to 'プロフィール', current_user
+                      li = link_to 'ユーザー情報編集', edit_user_path(current_user)
+                      li = link_to '投稿する', new_micropost_path
+                  li.nav-item= link_to 'ログアウト' , logout_path, method: :delete, class: 'nav-link'
+                - else
+                  li.nav-item= link_to 'トップ', root_path, class: 'nav-link'
+                  li.nav-item= link_to '全ての投稿' , microposts_path, class: 'nav-link'
+                  li.nav-item= link_to '地図' , '/index', class: 'nav-link'
+                  li.nav-item= link_to 'ユーザーリスト' , users_path, class: 'nav-link'
+                  li.nav-item= link_to '新規登録' , signup_path, class: 'nav-link'
+                  li.nav-item= link_to 'ログイン' , login_path,class: 'nav-link'
+          <div class="toggle_btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div id="mask"></div>
     .top-wrapper
       = render "shared/flash_messages"
       = yield
