@@ -458,7 +458,7 @@ small {
   .tweetbox {
     flex: 1;
     width: calc(100% - 85px);
-    margin-right: 5px;
+    margin-right: 15px;
     .tweetinfo {
       margin-top: 15px;
       .user {
@@ -528,7 +528,7 @@ small {
   margin-bottom: 50px;
 }
 .like-ranking {
-  width: 300px;
+  width: 280px;
   background: gold;
   border-radius: 10px;
   padding: 5px 10px;
@@ -808,7 +808,7 @@ input {
   }
   .infobox-content {
     padding: 10px;
-    min-height: 100px;
+    min-height: 50px;
   }
   
 }
@@ -1000,9 +1000,10 @@ input {
   .icon{
     width: 60px !important;
     text-align: center;
+    margin: 0 !important;
     img {
-      width: 50px;
-      height: auto;
+      max-width: 50px;
+      max-height: 50px;
     }
   }
   .tweetbox {
@@ -1011,6 +1012,10 @@ input {
   }
   .user-introduction {
     display: none !important;
+  }
+  .microposts {
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
 
