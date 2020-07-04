@@ -22,7 +22,7 @@ https://memoryfootprint.com
 * GitHub
 
 # インフラ構成図
-![Untitled Diagram](https://user-images.githubusercontent.com/62055598/85977218-22423580-ba17-11ea-83a1-9bc7d7f7d768.png)
+![Untitled Diagram (1)](https://user-images.githubusercontent.com/62055598/86512647-dc360900-be3e-11ea-9257-3d2ea04eddc9.png)
 
 # 機能一覧
 * ユーザー登録、ログイン機能
