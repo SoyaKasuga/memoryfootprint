@@ -26,8 +26,6 @@ jobs:
           command: |
             sudo gem update --system
             sudo gem uninstall -ax bundler
-            sudo rm /usr/local/bin/bundle
-            sudo rm /usr/local/bin/bundler
             sudo gem install bundler
       - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - run: yarn install
@@ -65,8 +63,6 @@ jobs:
           command: |
             sudo gem update --system
             sudo gem uninstall -ax bundler
-            sudo rm /usr/local/bin/bundle
-            sudo rm /usr/local/bin/bundler
             sudo gem install bundler
       - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - run: yarn install
