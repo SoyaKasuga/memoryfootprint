@@ -7,6 +7,7 @@ jobs:
         environment:
           RAILS_ENV: test
           POSTGRES_HOST: 127.0.0.1
+          BUNDLER_VERSION: 2.0.2
       - image: circleci/postgres:12.2
         environment:
           POSTGRES_USER: postgres
@@ -37,6 +38,7 @@ jobs:
         environment:
           RAILS_ENV: test
           POSTGRES_HOST: 127.0.0.1
+          BUNDLER_VERSION: 2.0.2
       - image: circleci/postgres:12.2
         environment:
           POSTGRES_USER: postgres
