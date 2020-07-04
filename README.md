@@ -20,6 +20,7 @@ https://memoryfootprint.com
   * EC2, RDS, S3, VPC, Route53, ALB, ACM
 * Docker
 * GitHub
+* Circle CI
 
 # インフラ構成図
 ![Untitled Diagram (1)](https://user-images.githubusercontent.com/62055598/86512647-dc360900-be3e-11ea-9257-3d2ea04eddc9.png)
