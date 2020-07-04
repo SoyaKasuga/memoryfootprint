@@ -7,7 +7,6 @@ jobs:
         environment:
           RAILS_ENV: test
           POSTGRES_HOST: 127.0.0.1
-          BUNDLER_VERSION: 2.0.2
       - image: circleci/postgres:12.2
         environment:
           POSTGRES_USER: postgres
@@ -25,9 +24,8 @@ jobs:
           name: setup bundler
           command: |
             sudo gem update --system
-            sudo gem uninstall bundler
-            sudo rm /usr/local/bin/bundle
-            sudo gem install bundler
+            sudo gem uninstall -ax bundler
+            sudo gem install bundler -v 2.0.2
       - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - run: yarn install
       - save_cache:
@@ -45,7 +43,6 @@ jobs:
         environment:
           RAILS_ENV: test
           POSTGRES_HOST: 127.0.0.1
-          BUNDLER_VERSION: 2.0.2
       - image: circleci/postgres:12.2
         environment:
           POSTGRES_USER: postgres
@@ -63,9 +60,8 @@ jobs:
           name: setup bundler
           command: |
             sudo gem update --system
-            sudo gem uninstall bundler
-            sudo rm /usr/local/bin/bundle
-            sudo gem install bundler
+            sudo gem uninstall -ax bundler
+            sudo gem install bundler -v 2.0.2
       - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - run: yarn install
       - save_cache:
