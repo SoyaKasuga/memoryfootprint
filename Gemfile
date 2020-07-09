@@ -57,6 +57,11 @@ group :development, :test do
   gem 'faker',          '1.7.3'
   gem 'rspec-rails', '~> 3.7'
   gem 'shoulda-matchers'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-puma'
 end
 
 group :development do
