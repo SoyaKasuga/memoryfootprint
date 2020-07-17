@@ -45,8 +45,8 @@ gem 'html2slim'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'mini_magick', '4.9.4'
+gem 'mini_racer'
 gem 'slim-rails'
-gem 'therubyracer'
 gem 'will_paginate', '3.1.7'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -55,15 +55,15 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'factory_bot_rails', '~> 4.11'
-  gem 'faker',          '1.7.3'
-  gem 'rspec-rails', '~> 3.7'
-  gem 'shoulda-matchers'
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-puma'
+  gem 'factory_bot_rails', '~> 4.11'
+  gem 'faker', '1.7.3'
+  gem 'rspec-rails', '~> 3.7'
+  gem 'shoulda-matchers'
 end
 
 group :development do

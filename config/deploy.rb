@@ -1,21 +1,21 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.14.1"
+lock '~> 3.14.1'
 
-set :application, "my_app_name"
-set :repo_url, "git@github.com:SoyaKasuga/memoryfootprint.git"
+set :application, 'my_app_name'
+set :repo_url, 'git@github.com:SoyaKasuga/memoryfootprint.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/rails/memoryfoorprint"
+set :deploy_to, '/var/www/rails/memoryfoorprint'
 
 set :rbenv_ruby, '2.5.1'
 
 append :linked_dirs, '.bundle'
 
-append :linked_files, "config/master.key"
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets"
+append :linked_files, 'config/master.key'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets'
 
 set :log_level, :debug
 # Default value for :format is :airbrussh.
