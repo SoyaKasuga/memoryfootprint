@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock '~> 3.14.1'
 
-set :application, 'my_app_name'
+set :application, 'memoryfootprint'
 set :repo_url, 'git@github.com:SoyaKasuga/memoryfootprint.git'
 
 # Default branch is :master
@@ -14,7 +14,7 @@ set :rbenv_ruby, '2.5.1'
 
 append :linked_dirs, '.bundle'
 
-append :linked_files, 'config/master.key','.env'
+append :linked_files, 'config/master.key', '.env'
 
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets'
 
