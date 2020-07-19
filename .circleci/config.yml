@@ -82,7 +82,7 @@ jobs:
       #自動デプロイ
       - add_ssh_keys:
             fingerprints:
-              - "38:91:bf:b1:40:6b:06:df:62:dd:b5:86:f1:34:ce:4b"
+              - "a8:bc:0e:e3:af:8d:90:fc:3f:6b:8f:7e:ee:e5:f8:aa"
       - deploy:
              name: Capistrano deploy
              command: |
