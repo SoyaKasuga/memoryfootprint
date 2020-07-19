@@ -20,10 +20,11 @@ https://memoryfootprint.com
   * EC2, RDS, S3, VPC, Route53, ALB, ACM
 * Docker
 * GitHub
-* Circle CI
+* Circle CIを使用したCI/CDパイプライン
+* Capistrano
 
 # インフラ構成図
-![Untitled Diagram (1)](https://user-images.githubusercontent.com/62055598/86512647-dc360900-be3e-11ea-9257-3d2ea04eddc9.png)
+![Untitled Diagram (6)](https://user-images.githubusercontent.com/62055598/87865567-eb29c900-c9b1-11ea-8c78-6f29b04069cc.png)
 
 # 機能一覧
 * ユーザー登録、ログイン機能
