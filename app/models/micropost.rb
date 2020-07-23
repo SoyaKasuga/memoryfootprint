@@ -23,6 +23,12 @@ class Micropost < ApplicationRecord
     like_users.include?(user)
   end
 
+  def self.search(search)
+    return Micropost.all unless search
+
+    Micropost.where(['content LIKE ?', "%#{search}%"])
+  end
+
   private
 
   def picture_size

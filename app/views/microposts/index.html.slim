@@ -4,6 +4,15 @@
     a = icon("fas","crown")
     span　
     a = link_to "いいね数ランキングを見る", microposts_rank_path
+  .search-forms
+    = form_tag(microposts_search_path, method: :get) do
+      = text_field_tag :search, nil, placeholder: "キーワード検索", class: "search-field"
+      = button_tag type: :submit, class: "search-submit" do
+        i class= "fa fa-search"
+        span 検索
+  .microposts-count
+    - if @keyword.present?
+      p #{@keyword} の検索結果：　#{@microposts_count} 件
   .microposts-index
     = render @microposts
   = will_paginate @microposts, previous_label: '<', next_label: '>'
