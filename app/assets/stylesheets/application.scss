@@ -522,6 +522,27 @@ small {
 
 /* 投稿一覧 */
 
+.search-forms {
+  margin-top: 50px !important;
+  width: 600px;
+  margin: auto;
+}
+
+.search-field {
+  display: inline-block;
+  width: 75%;
+}
+
+.search-submit {
+  display: inline-block;
+  width: 25%;
+}
+
+.microposts-count {
+  color: #808080;
+  padding-left: 10px;
+}
+
 .rank {
   background: gold;
   font-size: 30px;
@@ -1016,6 +1037,9 @@ input {
   .microposts {
     margin: 0 !important;
     padding: 0 !important;
+  }
+  .search-forms {
+    width: 95%;
   }
 }
 

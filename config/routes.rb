@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get     '/index', to: 'maps#index'
   get     '/help', to: 'static_pages#help'
   get     'microposts/rank', to: 'microposts#rank'
+  get     'microposts/search', to: 'microposts#search'
 end

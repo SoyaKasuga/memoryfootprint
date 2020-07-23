@@ -40,6 +40,13 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def search
+    @microposts = Micropost.search(params[:search]).paginate(page: params[:page])
+    @keyword = params[:search]
+    @microposts_count = Micropost.search(params[:search]).length
+    render 'index'
+  end
+
   private
 
   def micropost_params
