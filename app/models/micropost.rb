@@ -5,8 +5,8 @@ class Micropost < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
-  validates :content, presence: true, length: { maximum: 140 }
-  validates :address, presence: true, length: { maximum: 30 }
+  validates :content, presence: true, length: { maximum: 140 }, profanity_filter: true
+  validates :address, presence: true, length: { maximum: 30 }, profanity_filter: true
   validate  :picture_size
   geocoded_by :address
   after_validation :geocode
