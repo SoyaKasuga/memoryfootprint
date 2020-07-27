@@ -7,7 +7,7 @@
 # versions of RuboCop, may require this file to be generated again.
 
 Metrics/AbcSize:
-  Max: 23
+  Max: 28
 
 Metrics/BlockLength:
   Max: 99
