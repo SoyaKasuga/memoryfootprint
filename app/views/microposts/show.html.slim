@@ -1,0 +1,20 @@
+.container.mt
+  =render @micropost
+  .post.comment-area
+    -if @micropost.comments.present?
+      .comment-collection
+        = render partial: "comment", collection: @micropost.comments
+    -if current_user.present?
+      .comment-box
+        i class= "fa fa-comments"
+        a コメントする
+        .comment-area id="comment-area-#{@micropost.id}"
+          = form_for([@micropost,@comment]) do |f|
+            = f.text_area :content, placeholder: "140字以内", class: "comment-text"
+            = f.hidden_field :micropost_id, value: @micropost.id
+            .submit-coment
+              = f.submit "コメント", class: "comment-submit", class: "comment-submit"
+  .blank
+  .back-button
+    a = link_to :back do
+      = icon("fas", "arrow-alt-circle-left","戻る")

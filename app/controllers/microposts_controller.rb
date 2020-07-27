@@ -20,6 +20,12 @@ class MicropostsController < ApplicationController
 
   def index
     @microposts = Micropost.all.paginate(page: params[:page])
+    @comment = current_user.comments.build if current_user.present?
+  end
+
+  def show
+    @micropost = Micropost.find(params[:id])
+    @comment = current_user.comments.build if current_user.present?
   end
 
   def new
@@ -38,6 +44,7 @@ class MicropostsController < ApplicationController
       marker.lng micropost.longitude
       marker.infowindow render_to_string(partial: 'maps/infowindow', locals: { micropost: micropost })
     end
+    @comment = current_user.comments.build if current_user.present?
   end
 
   def search

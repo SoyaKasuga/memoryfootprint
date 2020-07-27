@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       marker.infowindow render_to_string(partial: 'maps/infowindow', locals: { micropost: micropost })
     end
     @like_microposts = @user.like_microposts.all
+    @comment = current_user.comments.build if current_user.present?
   end
 
   def create

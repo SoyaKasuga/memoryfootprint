@@ -483,13 +483,18 @@ small {
       margin-top: 15px;
       margin-bottom: 15px;
     }
-    .like {
-      width: 70px;
-      background: lightpink;
-      border-radius: 20px;
-      button {
-        width: 70px !important;
+    .micropost-bottom {
+      margin-top: 50px;
+      .like {
+        display: inline-block;
+        width: 70px;
+        margin-right: 40px;
+        background: lightpink;
         border-radius: 20px;
+        button {
+          width: 70px !important;
+          border-radius: 20px;
+        }
       }
     }
   }
@@ -567,6 +572,47 @@ small {
 .mt40 {
   margin-top: 40px !important;
 }
+
+/* コメント　*/
+
+.comment {
+  display: inline-block;
+}
+
+.comment-area {
+  background: rgb(253, 250, 219);
+}
+
+.comment-box {
+  margin: 0 auto;
+  padding-top: 70px;
+  padding-left: 115px;
+}
+
+.comment-text {
+  margin-bottom: 0 !important;
+  display: inline-block !important;
+  width: 60%;
+}
+.comment-collection {
+  border-bottom-style: dotted;
+  border-color: gray;
+}
+
+.comment-submit {
+  display: inline-block !important;
+  width: 200px;
+}
+
+.back-button {
+  margin-bottom: 30px;
+}
+
+
+.blank {
+  height: 60px;
+}
+
 /* プロフィール編集 */
 
 .picture-box {
