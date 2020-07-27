@@ -31,6 +31,7 @@ https://memoryfootprint.com
 * 投稿機能(画像投稿にcarrierwaveを使用)
 * 投稿一覧のキーワード検索機能
 * 投稿と位置情報の紐付け(geocoderとgmaps4railsを使用)
+* 投稿にコメントする機能
 * ページネーション機能
 * いいね機能(Ajax)
 * いいね数のランキング機能(累計/月間)
