@@ -3,7 +3,7 @@ class LikesController < ApplicationController
 
   def create
     @micropost = Micropost.find(params[:micropost_id])
-    return if @micropost.like?(current_user)
+    return false if @micropost.like?(current_user)
 
     @micropost.like(current_user)
     respond_to do |format|
@@ -14,7 +14,7 @@ class LikesController < ApplicationController
 
   def destroy
     @micropost = Like.find(params[:id]).micropost
-    return unless @micropost.like?(current_user)
+    return false unless @micropost.like?(current_user)
 
     @micropost.unlike(current_user)
     respond_to do |format|
