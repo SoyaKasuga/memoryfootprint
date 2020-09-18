@@ -321,6 +321,7 @@ small {
         border-radius: 4px;
         padding: 5px 8px;
         border: 2px solid rgba(206, 219, 90, 0.733);
+        text-align: center;
         a {
           color: rgba(101, 107, 46, 0.733) !important;
         }
@@ -1097,8 +1098,9 @@ input {
         display: flex;
         -webkit-justify-content: space-between;
         justify-content: space-between;
-        .btn {
+        .up-button {
           width: 35%;
+          text-align: center;
         }
       }
       .down-button {
