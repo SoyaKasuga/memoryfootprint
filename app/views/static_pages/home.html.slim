@@ -13,16 +13,16 @@
               | 自分の思い出を足跡に残そう。
           
         .button
-          .btn.btn-outline-dark.up-button type="button" = link_to login_path
+          .login-button.up-button type="button" = link_to login_path
             font[size="3"]
               | ログイン
               
-          .btn.btn-outline-primary.up-button type="button" = link_to signup_path
+          .signup-button.up-button type="button" = link_to signup_path
             font[size="3"]
               | 新規登録
             
               
-        .btn.btn-outline-dark.down-button type="button"  = link_to testsessions_path , method: :post
+        .test-login-button.down-button type="button"  = link_to testsessions_path , method: :post
           font[size="3"]
             | テストログイン
               
