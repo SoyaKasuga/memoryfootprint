@@ -1080,8 +1080,12 @@ input {
   li.menu_single:hover ul.menu_second-level {
     visibility: hidden;
   }
+  
 
   .top{
+    .container {
+      padding: 0;
+    }
     .box {   
     margin: 0 auto;
     width: 400px;
