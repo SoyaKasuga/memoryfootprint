@@ -9,7 +9,7 @@ RSpec.describe 'users update', js: true, type: :system do
       visit login_path
       fill_in 'メールアドレス', with: 'test@update.com'
       fill_in 'パスワード', with: 'password'
-      click_button 'ログイン'
+      click_button 'Log In'
       visit user_path(user)
     end
 

@@ -8,7 +8,7 @@ RSpec.describe 'map', js: true, type: :system do
       visit login_path
       fill_in 'メールアドレス', with: 'test@micropost.com'
       fill_in 'パスワード', with: 'password'
-      click_button 'ログイン'
+      click_button 'Log In'
       visit new_micropost_path
       fill_in 'テキスト', with: 'テスト投稿'
       fill_in '場所・地名', with: '東京駅'

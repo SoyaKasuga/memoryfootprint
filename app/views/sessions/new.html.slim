@@ -1,5 +1,6 @@
 .container.mt
-  h2 ログイン
+  h1 Log In
+  h5.subti ログイン
   .row
     .col-md-6.offset-md-3
       = form_for(:session, url: login_path) do |f|
@@ -10,6 +11,6 @@
         = f.label :remember_me, class: "checkbox inline" do
           = f.check_box :remember_me
           span 次回から自動的にログインする
-        = f.submit "ログイン", class: "btn btn-primary"
+        = f.submit "Log In", class: "btn btn-primary"
       p
-        | #{link_to "新規登録", signup_path}
+        | #{link_to "Sign Up", signup_path}
