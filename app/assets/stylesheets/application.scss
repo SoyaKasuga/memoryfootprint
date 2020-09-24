@@ -354,7 +354,6 @@ small {
     width: 46%;
     height: 120px;
     border-radius: 50px;
-    border: 2px solid gray;
     background: $color-white;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
     .image {
@@ -566,7 +565,7 @@ small {
 }
 .post {
   background: $color-white;
-  border: 1px solid gray;
+  border: 1px solid #fafafa;
   border-radius: 20px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
   margin-top: 20px;
