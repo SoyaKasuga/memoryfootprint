@@ -10,33 +10,33 @@ RSpec.describe 'Sessions', type: :system do
       before do
         fill_in 'メールアドレス', with: 'loginuser@example.com'
         fill_in 'パスワード', with: 'password'
-        click_button 'ログイン'
+        click_button 'Log In'
       end
       subject { page }
 
       it 'have links while logged in', js: true do
         is_expected.to have_current_path user_path(user)
         find('.menu_single').hover
-        is_expected.to have_link 'トップ', href: root_path
-        is_expected.to have_link '全ての投稿', href: microposts_path
-        is_expected.to have_link '地図', href: index_path
-        is_expected.to have_link 'ユーザーリスト', href: users_path
+        is_expected.to have_link 'TOP', href: root_path
+        is_expected.to have_link 'POSTS LIST', href: microposts_path
+        is_expected.to have_link 'MAP', href: index_path
+        is_expected.to have_link 'USERS LIST', href: users_path
         is_expected.to have_link user.name.to_s, href: user_path(user)
-        is_expected.to have_link 'プロフィール', href: user_path(user)
-        is_expected.to have_link 'ユーザー情報編集', href: edit_user_path(user)
-        is_expected.to have_link '投稿する', href: new_micropost_path
-        is_expected.to have_link 'ログアウト', href: logout_path
+        is_expected.to have_link 'PROFILE', href: user_path(user)
+        is_expected.to have_link 'EDIT YOUR PROFILE', href: edit_user_path(user)
+        is_expected.to have_link 'POST', href: new_micropost_path
+        is_expected.to have_link 'LOG OUT', href: logout_path
       end
 
       it 'log out after log in' do
-        click_link 'ログアウト'
+        click_link 'LOG OUT'
         is_expected.to have_current_path root_path
-        is_expected.to have_link 'トップ', href: root_path
-        is_expected.to have_link '全ての投稿', href: microposts_path
-        is_expected.to have_link '地図', href: index_path
-        is_expected.to have_link 'ユーザーリスト', href: users_path
-        is_expected.to have_link '新規登録', href: signup_path
-        is_expected.to have_link 'ログイン', href: login_path
+        is_expected.to have_link 'TOP', href: root_path
+        is_expected.to have_link 'POSTS LIST', href: microposts_path
+        is_expected.to have_link 'MAP', href: index_path
+        is_expected.to have_link 'USERS LIST', href: users_path
+        is_expected.to have_link 'SIGN UP', href: signup_path
+        is_expected.to have_link 'LOG IN', href: login_path
       end
     end
 
@@ -44,7 +44,7 @@ RSpec.describe 'Sessions', type: :system do
       before do
         fill_in 'メールアドレス', with: ''
         fill_in 'パスワード', with: ''
-        click_button 'ログイン'
+        click_button 'Log In'
       end
       subject { page }
 

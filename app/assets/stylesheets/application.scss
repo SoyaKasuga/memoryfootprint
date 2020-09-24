@@ -4,9 +4,61 @@
 
 /* universal */
 
-$color-main: #f5f1ed;
+
+$color-main: #ede4cd;
 $color-blue: #67c6e694;
 $color-white: #fafafa;
+
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Bold");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Regular");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Regular");
+  font-weight: 200;
+}
+
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+}
+@media all and (-ms-high-contrast: none)  {
+  html {
+    font-family: Verdana, Meiryo, sans-serif;
+  }
+}
+@media all and (-ms-high-contrast: active) {
+  html {
+    font-family: Verdana, Meiryo, sans-serif;
+  }
+}
 
 body {
   background-size: cover;
@@ -64,7 +116,23 @@ textarea {
   box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
 }
 h1 {
-  color: rgb(107, 107, 107);
+  color: $color-blue;
+  font-size: 40px;
+  font-family: fantasy;
+  margin-bottom: 15px;
+}
+h3 {
+  color: $color-blue;
+}
+
+.subti {
+  width: 80%;
+  text-align: center;
+  color: #67c6e694;
+  margin: auto;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #67c6e694;
+  margin-bottom: 40px;
 }
 
 
@@ -116,7 +184,7 @@ header {
 .app-title {
   height: 60px;
   width: 100%;
-  background: rgba(248,248,255,0.2);
+  background: $color-blue;
   top: 0;
   position: fixed;
   z-index: 10;
@@ -137,6 +205,10 @@ navbar-brand {
 
 .nav-item {
   padding-right: 10px;
+  a {
+    font-weight: 700;
+    color: #ede4cd !important;
+  }
 }
 
 li.menu_single {
@@ -146,13 +218,13 @@ li.menu_single {
   margin: auto;
   a {
     padding-left: 5px;
-    color: rgba(0, 0, 0, 0.5);
+    color: #ede4cd;
   }
 }
 li.menu_single ul.menu_second-level {
   list-style: none;
   position: absolute;
-  width: 150px;
+  width: 200px;
   top: 40px;
   left: -30px;
   box-sizing: border-box;
@@ -236,6 +308,7 @@ small {
       padding-top: 30px;
       font-size: 50px;
       font-family: fantasy;
+      color: rgb(107, 107, 107) !important;
     }
 
   }
@@ -268,7 +341,7 @@ small {
       float: right;  
       
       .login-button {
-        font-weight: bold;
+        font-weight: 700;
         border-radius: 4px;
         padding: 5px 8px;
         border: 2px solid #9ec34b;
@@ -286,7 +359,7 @@ small {
       }
 
       .signup-button {
-        font-weight: bold;
+        font-weight: 700;
         border-radius: 4px;
         padding: 5px 8px;
         border: 2px solid rgba(61, 143, 197, 0.733);
@@ -317,7 +390,7 @@ small {
         margin-right: 3.4em;
         top: 170px;
         box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
-        font-weight: bold;
+        font-weight: 700;
         border-radius: 4px;
         padding: 5px 8px;
         border: 2px solid rgba(206, 219, 90, 0.733);
@@ -355,7 +428,6 @@ small {
     height: 120px;
     border-radius: 50px;
     background: $color-white;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
     .image {
       margin-top: 20px;
       margin-left: 5px;
@@ -396,7 +468,6 @@ small {
   margin-bottom: 65px;
   background: $color-white;
   border-radius: 30px;
-  box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
   .user-info {
     text-align: center;
     height: 200px;
@@ -411,7 +482,7 @@ small {
     .name {
       padding-top: 15px;
       font-size: 20px;
-      font-weight: bold;
+      font-weight: 700;
     }
   }
   .delete-user {
@@ -486,22 +557,27 @@ small {
     flex-grow: 1;
     list-style: none;
     text-align: center;
-    border-bottom: 1px solid darkgray;
+    border: 1px solid darkgray;
     cursor: pointer;
+    border-radius: 10px;
 }
 .panel{ 
     display:none;
 }
 .tab.is-active{ 
-    color: black !important;
-    border: 1px solid darkgray;
-    border-bottom: none !important;
-    transition: all 0.2s ease-out;
+    color: $color-white !important;
+    transition: all 0.8s ease-out;
+    background: #165e83;
 }
 .panel.is-show{ 
     display:block;
     min-height: 50vh;
     margin-bottom: 40px;
+}
+.tab-C {
+  .noiine {
+    margin-top: 50px;
+  }
 }
 
 
@@ -567,7 +643,6 @@ small {
   background: $color-white;
   border: 1px solid #fafafa;
   border-radius: 20px;
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
   margin-top: 20px;
   width: 100%;
 }
@@ -586,7 +661,7 @@ small {
 .user-map {
   padding-top: 50px;
   margin-bottom: 30px;
-  color: #808080;
+  color: $color-blue;
 }
 
 /* 投稿一覧 */
@@ -826,7 +901,7 @@ input {
     display: inline-block;
     .name {
       font-size: 25px;
-      font-weight: bold;
+      font-weight: 700;
     }
     
   }
@@ -881,11 +956,14 @@ input {
   border: 1px solid;
 }
 .map-box {
-  h1 {
+  .maptitle {
+    margin-top: 120px;
+  }
+  .makk {
     margin-top: 80px;
     float: left !important;
     position: relative;
-    background: #f4f4f4;
+    background: $color-main;
     padding: 2px 5px 2px 65px;
     font-size: 20px;
     color: #474747;
@@ -933,7 +1011,7 @@ input {
       margin: 0 auto;
       margin-left: 15px;
       font-size: 20px;
-      font-weight: bold;
+      font-weight: 700;
       color: black;
     }
   }
@@ -1155,6 +1233,11 @@ input {
   }
   .search-forms {
     width: 95%;
+  }
+  .like-ranking {
+    width: 100%;
+    padding: 0;
+    text-align: center;
   }
 }
 

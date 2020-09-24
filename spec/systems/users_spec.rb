@@ -5,11 +5,11 @@ RSpec.describe 'users', js: true, type: :system do
     context 'enter an valid values' do
       before do
         visit signup_path
-        fill_in 'ユーザー名(10文字以内)', with: 'test'
+        fill_in 'ユーザー名（10文字以内）', with: 'test'
         fill_in 'メールアドレス', with: 'testuser@example.com'
-        fill_in 'パスワード(6文字以上)', with: 'password'
-        fill_in 'パスワード(確認)', with: 'password'
-        click_button 'アカウントを作成する'
+        fill_in 'パスワード（6文字以上）', with: 'password'
+        fill_in 'パスワード（確認）', with: 'password'
+        click_button 'Create Your Account'
       end
       it 'gets an flash message' do
         expect(page).to have_selector('.alert-success', text: 'memoryfootprintへようこそ！')
@@ -18,11 +18,11 @@ RSpec.describe 'users', js: true, type: :system do
     context 'enter an invalid values' do
       before do
         visit signup_path
-        fill_in 'ユーザー名(10文字以内)', with: ''
+        fill_in 'ユーザー名（10文字以内）', with: ''
         fill_in 'メールアドレス', with: ''
-        fill_in 'パスワード(6文字以上)', with: ''
-        fill_in 'パスワード(確認)', with: ''
-        click_button 'アカウントを作成する'
+        fill_in 'パスワード（6文字以上）', with: ''
+        fill_in 'パスワード（確認）', with: ''
+        click_button 'Create Your Account'
       end
       subject { page }
       it 'get flash messages' do
@@ -47,7 +47,7 @@ RSpec.describe 'users', js: true, type: :system do
         visit login_path
         fill_in 'メールアドレス', with: 'test@test.com'
         fill_in 'パスワード', with: 'password'
-        click_button 'ログイン'
+        click_button 'Log In'
         visit user_path(another)
       end
 
@@ -66,7 +66,7 @@ RSpec.describe 'users', js: true, type: :system do
         visit login_path
         fill_in 'メールアドレス', with: 'another@another.com'
         fill_in 'パスワード', with: 'password'
-        click_button 'ログイン'
+        click_button 'Log In'
         visit user_path(user)
       end
 
@@ -93,7 +93,7 @@ RSpec.describe 'users', js: true, type: :system do
       visit login_path
       fill_in 'メールアドレス', with: 'test@test.com'
       fill_in 'パスワード', with: 'password'
-      click_button 'ログイン'
+      click_button 'Log In'
     end
 
     context 'visit own user page' do

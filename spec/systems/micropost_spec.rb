@@ -8,7 +8,7 @@ RSpec.describe 'microposts', js: true, type: :system do
       visit login_path
       fill_in 'メールアドレス', with: 'test@micropost.com'
       fill_in 'パスワード', with: 'password'
-      click_button 'ログイン'
+      click_button 'Log In'
       visit new_micropost_path
     end
 
@@ -25,7 +25,7 @@ RSpec.describe 'microposts', js: true, type: :system do
       end
 
       it 'is displayed' do
-        click_on '投稿'
+        click_on 'POST'
         expect(page).to have_content 'テスト投稿'
         expect(page).to have_content '東京駅'
         expect(page).to have_content '2019年10月10日'

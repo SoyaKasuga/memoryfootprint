@@ -33,7 +33,7 @@
     .panel-group 
       .panel.tab-A.is-show
         .user-map
-          h2 #{@user.name}の思い出を地図で探す
+          
         #map
       .panel.tab-B
         - if @user.microposts.any?
@@ -55,7 +55,7 @@
           h3
             | いいね！した投稿
         -else
-          h3
+          h3.noiine
             | いいね！した投稿はまだありません
         
         ol.microposts
