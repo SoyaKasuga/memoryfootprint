@@ -10,7 +10,7 @@ services:
 
   app:
     build: .
-    command: bundle exec puma -C config/puma.rb
+    command: /bin/sh -c "bundle install && bundle exec puma -C config/puma.rb"
     volumes:
       - .:/memoryfootprint
       - public_data:/memoryfootprint/public

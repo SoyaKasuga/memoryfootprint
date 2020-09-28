@@ -63,6 +63,7 @@ group :development, :test do
   gem 'capistrano3-puma'
   gem 'factory_bot_rails', '~> 4.11'
   gem 'faker', '1.7.3'
+  gem 'rails-erd'
   gem 'rspec-rails', '~> 3.7'
   gem 'shoulda-matchers'
 end
