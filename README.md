@@ -23,6 +23,9 @@ https://memoryfootprint.com
 * Circle CIを使用したCI/CDパイプライン
 * Capistrano
 
+# ER図
+![erd](https://user-images.githubusercontent.com/62055598/94391867-9d8bc280-0191-11eb-91b5-23b2505c31bc.png)
+
 # インフラ構成図
 ![Untitled Diagram (6)](https://user-images.githubusercontent.com/62055598/87865567-eb29c900-c9b1-11ea-8c78-6f29b04069cc.png)
 
