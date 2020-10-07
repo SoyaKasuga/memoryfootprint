@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'users', js: true, type: :system do
-  describe 'user create a new account' do
+  describe 'POST #create' do
     context 'enter an valid values' do
       before do
         visit signup_path
@@ -38,7 +38,7 @@ RSpec.describe 'users', js: true, type: :system do
     end
   end
 
-  describe 'user destroy another account' do
+  describe 'POST #destroy' do
     let!(:user) { create(:user, email: 'test@test.com', password: 'password', admin: true) }
     let!(:another) { create(:user, name: 'another', email: 'another@another.com') }
 
@@ -76,7 +76,7 @@ RSpec.describe 'users', js: true, type: :system do
     end
   end
 
-  describe 'visit users index' do
+  describe 'GET #index' do
     let!(:user) { create(:user, email: 'test@test.com', password: 'password', admin: true) }
     let!(:another) { create(:user, name: 'another', email: 'another@another.com') }
     before { visit users_path }
@@ -86,7 +86,7 @@ RSpec.describe 'users', js: true, type: :system do
     end
   end
 
-  describe 'visit user page' do
+  describe 'GET #show' do
     let!(:user) { create(:user, email: 'test@test.com', password: 'password', admin: true) }
     let!(:another) { create(:user, name: 'another', email: 'another@another.com') }
     before do
@@ -109,6 +109,49 @@ RSpec.describe 'users', js: true, type: :system do
 
       it 'have follow link' do
         expect(page).to have_button 'フォローする'
+      end
+    end
+  end
+
+  describe 'edit own profile' do
+    let!(:user) { create(:user, email: 'test@update.com', password: 'password', admin: true) }
+    let!(:another) { create(:user, name: 'another', email: 'another@another.com') }
+    before  :each do
+      visit login_path
+      fill_in 'メールアドレス', with: 'test@update.com'
+      fill_in 'パスワード', with: 'password'
+      click_button 'Log In'
+      visit user_path(user)
+    end
+
+    context 'user edit own profile' do
+      before do
+        click_on '編集する'
+        fill_in '名前', with: 'アップデート'
+        fill_in 'メールアドレス', with: 'update@update.com'
+        fill_in 'パスワード', with: 'password'
+        fill_in 'パスワード(確認)', with: 'password'
+        fill_in '自己紹介文(100文字以内)', with: '自己紹介文'
+        click_on '変更する'
+      end
+
+      it 'have success flash message' do
+        expect(page).to have_content 'プロフィールを更新しました'
+      end
+
+      it 'confirm change own profile' do
+        expect(page).to have_selector('.name', text: 'アップデート')
+        expect(page).to have_text('自己紹介文')
+        click_on '編集する'
+        expect(page).to have_field '名前', with: 'アップデート'
+        expect(page).to have_field 'メールアドレス', with: 'update@update.com'
+      end
+
+      it 'edit profile without fill in password' do
+        click_on '編集する'
+        fill_in '名前', with: 'アップデート２'
+        click_on '変更する'
+        expect(page).to have_selector('.name', text: 'アップデート２')
       end
     end
   end
