@@ -23,13 +23,13 @@ RSpec.describe 'map', js: true, type: :system do
     end
 
     it 'display pin in googlemap' do
-      find('map#gmimap0 area', visible: false).click
+      find(:xpath, '//*[@id="map"]/div/div/div[1]/div[3]/div/div[3]/div[2]/img').click
       expect(page).to have_content 'テストユーザー'
       expect(page).to have_content 'テスト投稿'
     end
 
     it 'jump user page when click' do
-      find('map#gmimap0 area', visible: false).click
+      find(:xpath, '//*[@id="map"]/div/div/div[1]/div[3]/div/div[3]/div[2]/img').click
       find('div.infobox-user a').click
       expect(current_path).to eq user_path(user)
     end
